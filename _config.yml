@@ -2,7 +2,7 @@ title: Tyson's Blog
 description: Notes on tech and life
 author: Tyson
 
-theme: minima
+theme: jekyll-theme-slate
 
 markdown: kramdown
 
