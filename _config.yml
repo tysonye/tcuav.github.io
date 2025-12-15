@@ -1,49 +1,22 @@
+title: 通程无人机
+description: 专注无人机应用、培训与行业服务
+author: 通程无人机
 theme: jekyll-theme-cayman
 
+# SEO 设置
+seo:
+  description: "安徽通程智能无人机基地，专注无人机应用与行业培训。"
+  keywords: "无人机, 培训, 应用, 行业服务"
 
-title: 安徽通程智能无人机基地
-description: 专注无人机应用、培训与行业服务
+# 社交媒体设置
+social:
+  twitter: "your_twitter_handle"
+  facebook: "your_facebook_page"
+  linkedin: "your_linkedin_page"
+
+# 中文支持
 lang: zh-CN
-author: 通程无人机
-plugins:
-  - jekyll-seo-tag
 
-
-
-markdown: kramdown
-
-timezone: America/New_York
-
-permalink: /:year/:month/:day/:title/
-
-show_download: false
-
-
-
+# 自定义设置
 github:
   is_project_page: false
-
-
-  lang: zh-CN
-
-permalink: /:year/:month/:day/:title/
-
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: default
-
-nav:
-  - title: 首页
-    url: /
-  - title: 基地介绍
-    url: /about
-  - title: 培训体系
-    url: /training
-  - title: 行业服务
-    url: /services
-  - title: 博客
-    url: /blog
-  - title: 联系
-    url: /contact
