@@ -16,7 +16,7 @@ timezone: America/New_York
 
 permalink: /:year/:month/:day/:title/
 
-show_downloads:false
+show_download: false
 
 
 
