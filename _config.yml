@@ -9,3 +9,8 @@ markdown: kramdown
 timezone: America/New_York
 
 permalink: /:year/:month/:day/:title/
+
+github:
+  is_project_page: false
+
+  show_downloads: false
