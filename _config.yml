@@ -3,7 +3,7 @@ description: 专注无人机应用、培训与行业服务
 lang: zh-CN
 author: 叶老师
 
-theme: cjekyll-theme-cayman
+theme: jekyll-theme-cayman
 
 markdown: kramdown
 
