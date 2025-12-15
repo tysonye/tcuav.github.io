@@ -13,3 +13,15 @@ permalink: /:year/:month/:day/:title/
 github:
   is_project_page: false
 
+
+  lang: zh-CN
+
+permalink: /:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+

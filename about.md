@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About
+title: 基地介绍
 ---
 
-这里是关于我的介绍。
+这里介绍基地背景、定位、愿景等。
