@@ -1,0 +1,11 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* 隐藏底部 Published with GitHub Pages */
+footer,
+.site-footer,
+footer p {
+  display: none !important;
+}
