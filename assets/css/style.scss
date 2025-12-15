@@ -9,21 +9,21 @@ body {
 
 /* ===== 顶部 Hero 区（优化合并） ===== */
 .site-header {
-  background: linear-gradient(135deg, #1e293b, #0f172a); 
-  color: #ffffff;
+  background: linear-gradient(135deg, #1e293b, #0f172a); /* 更深的渐变背景 */
+  color: #ffffff; /* 白色字体，确保高对比度 */
   padding: 80px 20px 40px;
   text-align: center;
 }
 
 .site-header h1 {
-  color: #f8fafc;
+  color: #ffffff; /* 保持白色字体 */
   font-size: 44px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .site-header .project-tagline {
-  color: #cbd5e1;
+  color: #cbd5e1; /* 轻微灰色文字 */
   font-size: 18px;
   margin-top: 12px;
 }
