@@ -1,3 +1,14 @@
-theme: jekyll-theme-Chirpy
-title: 安徽桐城无人机基地
-description: 零基础到飞手，全程实战教学
+title: Tyson's Blog
+description: Notes on tech and life
+author: Tyson
+
+theme: minima
+
+markdown: kramdown
+
+timezone: America/New_York
+
+permalink: /:year/:month/:day/:title/
+
+minima:
+  skin: dark    # 可选：dark / classic / solarized
