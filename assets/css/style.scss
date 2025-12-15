@@ -31,13 +31,13 @@ body {
 
 /* ===== 导航 ===== */
 .site-nav {
-  background-color: #1e293b;
+  background-color: #1e293b; /* 深蓝背景，确保对比度 */
   text-align: center;
   padding: 20px 0;
 }
 
 .site-nav a {
-  color: #f8fafc;
+  color: #f8fafc; /* 白色字体，确保高对比度 */
   margin: 0 20px;
   font-size: 18px;
   text-decoration: none;
@@ -45,7 +45,7 @@ body {
 }
 
 .site-nav a:hover {
-  color: #38bdf8;
+  color: #38bdf8; /* 蓝色高亮 */
   text-decoration: underline;
 }
 
