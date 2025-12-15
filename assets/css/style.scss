@@ -37,3 +37,23 @@ section {
 .site-nav a:hover {
   text-decoration: underline;
 }
+
+/* 内容区可读性修复 */
+.main-content {
+  background: #ffffff;
+  color: #222;
+  padding: 40px;
+}
+
+/* 标题颜色 */
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  color: #111;
+}
+
+/* 段落和列表 */
+.main-content p,
+.main-content li {
+  color: #333;
+}
