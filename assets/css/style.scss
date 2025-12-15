@@ -3,25 +3,27 @@
 
 @import "{{ site.theme }}";
 
-/* 隐藏底部 Published with GitHub Pages */
-footer,
-.site-footer,
-footer p {
-  display: none !important;
+/* 内容区 */
+.main-content {
+  background: #ffffff;
+  color: #222;
+  padding: 40px;
 }
 
-/* 去掉中间多余空白 */
-.inner {
-  max-width: 1100px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+/* 标题 */
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  color: #111;
 }
 
-section {
-  padding-top: 20px;
-  padding-bottom: 20px;
+/* 正文 */
+.main-content p,
+.main-content li {
+  color: #333;
 }
 
+/* 导航 */
 .site-nav {
   text-align: center;
   margin-top: 10px;
@@ -31,29 +33,8 @@ section {
   color: #fff;
   margin: 0 15px;
   text-decoration: none;
-  font-size: 16px;
 }
 
 .site-nav a:hover {
   text-decoration: underline;
-}
-
-/* 内容区可读性修复 */
-.main-content {
-  background: #ffffff;
-  color: #222;
-  padding: 40px;
-}
-
-/* 标题颜色 */
-.main-content h1,
-.main-content h2,
-.main-content h3 {
-  color: #111;
-}
-
-/* 段落和列表 */
-.main-content p,
-.main-content li {
-  color: #333;
 }
