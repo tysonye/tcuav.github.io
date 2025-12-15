@@ -25,4 +25,16 @@ defaults:
     values:
       layout: default
 
-
+nav:
+  - title: 首页
+    url: /
+  - title: 基地介绍
+    url: /about
+  - title: 培训体系
+    url: /training
+  - title: 行业服务
+    url: /services
+  - title: 博客
+    url: /blog
+  - title: 联系
+    url: /contact
