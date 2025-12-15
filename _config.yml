@@ -9,6 +9,3 @@ markdown: kramdown
 timezone: America/New_York
 
 permalink: /:year/:month/:day/:title/
-
-minima:
-  skin: dark    # 可选：dark / classic / solarized
