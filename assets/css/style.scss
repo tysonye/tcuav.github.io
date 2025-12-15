@@ -32,24 +32,37 @@ body {
   color: #cbd5e1;
 }
 
-/* ===== 导航 ===== */
-
-.site-nav {
-  margin-top: 30px;
+.site-header {
+  background: linear-gradient(135deg, #1e293b, #0f172a); /* 深蓝渐变 */
+  color: #ffffff; /* 白色字体 */
+  padding: 40px 0;
   text-align: center;
 }
 
+/* ===== 文字标题处理 ===== */
+.site-header h1 {
+  color: #f8fafc; /* 更柔和的白色 */
+  font-size: 40px;
+  font-weight: 600;
+}
+
+/* ===== 导航 ===== */
+
+.site-nav {
+  background-color: #1e293b; /* 渐变深蓝 */
+  text-align: center;
+  padding: 15px 0;
+}
+
 .site-nav a {
-  color: #e5e7eb;
-  margin: 0 18px;
-  font-size: 15px;
+  color: #f8fafc;
+  margin: 0 15px;
+  font-size: 16px;
   text-decoration: none;
-  opacity: 0.85;
 }
 
 .site-nav a:hover {
-  opacity: 1;
-  text-decoration: none;
+  color: #38bdf8;
 }
 
 /* ===== 主内容区 ===== */
