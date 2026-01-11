@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { fetchNewsFromIssues } from '../utils/githubApi'
+import { useState } from 'react'
+import { newsData as mockNewsData, newsCategories } from '../lib/mockData'
 
 interface NewsItem {
   id: number
@@ -8,25 +8,19 @@ interface NewsItem {
   date: string
   imageUrl: string
   category: string
+  details: {
+    fullContent: string[]
+    tags: string[]
+    author: string
+    source: string
+  }
 }
 
 const News = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null)
-  const [newsData, setNewsData] = useState<NewsItem[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  
-  // 从GitHub Issues获取新闻数据
-  useEffect(() => {
-    const loadNews = async () => {
-      setIsLoading(true)
-      const news = await fetchNewsFromIssues()
-      setNewsData(news)
-      setIsLoading(false)
-    }
-    
-    loadNews()
-  }, [])
+  const [newsData, setNewsData] = useState<NewsItem[]>(mockNewsData)
+  const [isLoading, setIsLoading] = useState(false)
   
   // 获取所有分类（包括动态生成的分类）
   const categories = ['all', ...Array.from(new Set(newsData.map(news => news.category)))]
@@ -154,9 +148,20 @@ const News = () => {
                   {selectedNews.title}
                 </h2>
                 <div className="text-gray-600 dark:text-gray-300 leading-relaxed space-y-4">
-                  <p>{selectedNews.content}</p>
-                  <p>通程智能科技将继续专注于无人机技术研发和行业应用，不断提升核心竞争力，为客户提供更优质的无人机解决方案。公司将依托CAAC培训资质和"无人机+卫星遥感"融合应用体系，拓展更多应用场景，推动低空经济的发展。</p>
-                  <p>未来，通程智能科技将继续加强与高校、企业的合作，推进技术创新和成果转化，打造区域低空经济示范企业，为安徽省乃至全国的低空经济发展做出更大贡献。</p>
+                  {selectedNews.details.fullContent.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+                </div>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {selectedNews.details.tags.map((tag, index) => (
+                    <span key={index} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-sm font-medium rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
+                  <p>作者: {selectedNews.details.author}</p>
+                  <p>来源: {selectedNews.details.source}</p>
                 </div>
               </div>
             </div>
