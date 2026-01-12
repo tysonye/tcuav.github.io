@@ -252,8 +252,13 @@ const Quiz = () => {
                 <div className="text-lg font-semibold">
                   第 {currentQuestionIndex + 1}/{questions.length} 题
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  类型：{currentQuestion.type}
+                <div className="flex items-center space-x-4">
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    正确率：{calculateAccuracy()}%
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                    类型：{currentQuestion.type}
+                  </div>
                 </div>
               </div>
               
