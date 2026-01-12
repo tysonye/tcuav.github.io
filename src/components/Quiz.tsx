@@ -56,8 +56,6 @@ const Quiz = () => {
   const checkAnswer = () => {
     if (!selectedAnswer) return;
 
-    setShowAnswer(true);
-    
     // 只在第一次提交当前题目答案时更新分数和已提交题目数量
     if (!showAnswer) {
       setSubmittedQuestions(prev => prev + 1);
@@ -65,6 +63,9 @@ const Quiz = () => {
         setScore(prevScore => prevScore + 1);
       }
     }
+    
+    // 最后显示答案
+    setShowAnswer(true);
   };
 
   // 下一题
