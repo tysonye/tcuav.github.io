@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { skillsData } from '../lib/mockData'
+import { useState, useEffect } from 'react'
+import { fetchSkillsFromIssues } from '../utils/githubApi'
 
 interface Skill {
   name: string
@@ -16,6 +16,20 @@ interface Skill {
 
 const Skills = () => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
+  const [skillsData, setSkillsData] = useState<Skill[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  
+  // 从GitHub Issues获取技能数据
+  useEffect(() => {
+    const loadSkills = async () => {
+      setIsLoading(true)
+      const skills = await fetchSkillsFromIssues()
+      setSkillsData(skills)
+      setIsLoading(false)
+    }
+    
+    loadSkills()
+  }, [])
   
   return (
     <section id="skills" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
@@ -80,6 +94,15 @@ const Skills = () => {
             </div>
           </div>
 
+          {/* 加载状态 */}
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">正在加载核心技术...</p>
+            </div>
+          </div>
+        ) : (
           <div className="space-y-6">
             {skillsData.map((skill, index) => (
               <div 
@@ -105,7 +128,8 @@ const Skills = () => {
               </div>
             ))}
           </div>
-        </div>
+        )}
+      </div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillsData.map((tech, index) => (

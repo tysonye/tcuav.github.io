@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { projectsData, projectCategories } from '../lib/mockData'
+import { useState, useEffect } from 'react'
+import { fetchProjectsFromIssues } from '../utils/githubApi'
+import { projectCategories } from '../lib/mockData'
 
 interface Project {
   id: number
@@ -22,6 +23,20 @@ interface Project {
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [projectsData, setProjectsData] = useState<Project[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  
+  // 从GitHub Issues获取项目数据
+  useEffect(() => {
+    const loadProjects = async () => {
+      setIsLoading(true)
+      const projects = await fetchProjectsFromIssues()
+      setProjectsData(projects)
+      setIsLoading(false)
+    }
+    
+    loadProjects()
+  }, [])
   
   const filteredProjects = activeCategory === 'all' 
     ? projectsData 
@@ -63,8 +78,27 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+        {/* 加载状态 */}
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="flex flex-col items-center">
+              <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+              <p className="mt-4 text-gray-600 dark:text-gray-300">正在加载项目...</p>
+            </div>
+          </div>
+        ) : filteredProjects.length === 0 ? (
+          <div className="text-center py-20">
+            <svg className="w-16 h-16 mx-auto text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p className="mt-4 text-gray-600 dark:text-gray-300">暂无项目内容</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              项目内容通过GitHub Issues管理，添加标签"project"和分类标签即可发布项目
+            </p>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project) => (
             <div 
               key={project.id}
               className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full"
@@ -108,8 +142,9 @@ const Projects = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         <div className="text-center mt-12">
           <button 

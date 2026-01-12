@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { newsData as mockNewsData, newsCategories } from '../lib/mockData'
+import { useState, useEffect } from 'react'
+import { fetchNewsFromIssues } from '../utils/githubApi'
 
 interface NewsItem {
   id: number
@@ -19,8 +19,20 @@ interface NewsItem {
 const News = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null)
-  const [newsData, setNewsData] = useState<NewsItem[]>(mockNewsData)
-  const [isLoading, setIsLoading] = useState(false)
+  const [newsData, setNewsData] = useState<NewsItem[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  
+  // 从GitHub Issues获取新闻数据
+  useEffect(() => {
+    const loadNews = async () => {
+      setIsLoading(true)
+      const news = await fetchNewsFromIssues()
+      setNewsData(news)
+      setIsLoading(false)
+    }
+    
+    loadNews()
+  }, [])
   
   // 获取所有分类（包括动态生成的分类）
   const categories = ['all', ...Array.from(new Set(newsData.map(news => news.category)))]

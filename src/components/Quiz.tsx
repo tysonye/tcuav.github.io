@@ -1,0 +1,290 @@
+import { useState, useEffect } from 'react';
+import questionsData from '../data/questions.json';
+
+interface Option {
+  key: string;
+  content: string;
+}
+
+interface Question {
+  id: number;
+  type: string;
+  content: string;
+  options: Option[];
+  answer: string;
+  analysis: string;
+}
+
+const Quiz = () => {
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [score, setScore] = useState(0);
+  const [quizCompleted, setQuizCompleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 加载题目数据
+  useEffect(() => {
+    const loadQuestions = () => {
+      setQuestions(questionsData as Question[]);
+      setIsLoading(false);
+    };
+
+    loadQuestions();
+  }, []);
+
+  // 重置当前题目的选择
+  useEffect(() => {
+    setSelectedAnswer('');
+    setShowAnswer(false);
+  }, [currentQuestionIndex]);
+
+  // 处理选项选择
+  const handleOptionSelect = (optionKey: string) => {
+    setSelectedAnswer(optionKey);
+  };
+
+  // 检查答案
+  const checkAnswer = () => {
+    if (!selectedAnswer) return;
+
+    setShowAnswer(true);
+    
+    if (selectedAnswer === questions[currentQuestionIndex].answer) {
+      setScore(prevScore => prevScore + 1);
+    }
+  };
+
+  // 下一题
+  const nextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+    } else {
+      setQuizCompleted(true);
+    }
+  };
+
+  // 上一题
+  const prevQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(prevIndex => prevIndex - 1);
+    }
+  };
+
+  // 重新开始
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setSelectedAnswer('');
+    setShowAnswer(false);
+    setScore(0);
+    setQuizCompleted(false);
+  };
+
+  // 计算正确率
+  const calculateAccuracy = () => {
+    return Math.round((score / questions.length) * 100);
+  };
+
+  if (isLoading) {
+    return (
+      <section id="quiz" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+        <div className="container mx-auto max-w-4xl">
+          <div className="flex justify-center items-center h-64">
+            <div className="text-center">
+              <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-4"></div>
+              <p className="text-xl text-gray-600 dark:text-gray-300">正在加载题目...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (quizCompleted) {
+    return (
+      <section id="quiz" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block relative">
+              考试完成
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-blue-600 dark:bg-blue-400 w-24 rounded-full"></div>
+            </h2>
+          </div>
+          
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center">
+            <div className="mb-8">
+              <div className="text-6xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                {score}/{questions.length}
+              </div>
+              <div className="text-2xl mb-4">
+                {calculateAccuracy()}%
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">
+                恭喜你完成了所有题目！
+              </div>
+            </div>
+            
+            <div className="mb-8">
+              <h3 className="text-xl font-semibold mb-4">答题详情</h3>
+              <div className="flex justify-center space-x-8">
+                <div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">{score}</div>
+                  <div className="text-gray-600 dark:text-gray-300">答对</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-red-600 dark:text-red-400">{questions.length - score}</div>
+                  <div className="text-gray-600 dark:text-gray-300">答错</div>
+                </div>
+              </div>
+            </div>
+            
+            <button
+              onClick={restartQuiz}
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md transition-all duration-300 transform hover:scale-105"
+            >
+              重新开始
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const currentQuestion = questions[currentQuestionIndex];
+
+  return (
+    <section id="quiz" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+      <div className="container mx-auto max-w-4xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block relative">
+            在线刷题
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-blue-600 dark:bg-blue-400 w-24 rounded-full"></div>
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            共 {questions.length} 道题目，测试你的知识掌握程度
+          </p>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          {/* 题目导航栏 */}
+          <div className="px-6 py-4 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex justify-between items-center">
+              <div className="text-lg font-semibold">
+                第 {currentQuestionIndex + 1}/{questions.length} 题
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                类型：{currentQuestion.type}
+              </div>
+            </div>
+            <div className="mt-2">
+              <div className="h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-blue-600 dark:bg-blue-400 rounded-full transition-all duration-300"
+                  style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          {/* 题目内容 */}
+          <div className="p-6">
+            <div className="mb-6">
+              <h3 className="text-xl font-bold mb-4">
+                {currentQuestion.content}
+              </h3>
+            </div>
+
+            {/* 选项 */}
+            <div className="space-y-3 mb-6">
+              {currentQuestion.options.map((option, index) => (
+                <div
+                  key={index}
+                  className={`p-4 rounded-lg border cursor-pointer transition-all duration-300 ${selectedAnswer === option.key 
+                    ? (showAnswer 
+                      ? (option.key === currentQuestion.answer 
+                        ? 'border-green-500 bg-green-50 dark:bg-green-900/20' 
+                        : 'border-red-500 bg-red-50 dark:bg-red-900/20') 
+                      : 'border-blue-500 bg-blue-50 dark:bg-blue-900/20') 
+                    : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30'}`}
+                  onClick={() => handleOptionSelect(option.key)}
+                >
+                  <div className="flex items-start">
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 ${selectedAnswer === option.key 
+                      ? (showAnswer 
+                        ? (option.key === currentQuestion.answer 
+                          ? 'bg-green-500 text-white' 
+                          : 'bg-red-500 text-white') 
+                        : 'bg-blue-500 text-white') 
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'}`}>
+                      {option.key}
+                    </div>
+                    <div className={selectedAnswer === option.key ? 'font-medium' : ''}>
+                      {option.content}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 查看解析 */}
+            {showAnswer && currentQuestion.analysis && (
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg mb-6">
+                <h4 className="font-semibold mb-2 text-blue-600 dark:text-blue-400">解析：</h4>
+                <p className="text-gray-700 dark:text-gray-300">{currentQuestion.analysis}</p>
+              </div>
+            )}
+
+            {/* 正确答案提示 */}
+            {showAnswer && (
+              <div className="mb-6">
+                <p className="text-sm font-medium">
+                  正确答案：
+                  <span className="ml-2 text-green-600 dark:text-green-400 font-bold">
+                    {currentQuestion.answer}
+                  </span>
+                </p>
+              </div>
+            )}
+
+            {/* 操作按钮 */}
+            <div className="flex justify-between items-center">
+              <button
+                onClick={prevQuestion}
+                disabled={currentQuestionIndex === 0}
+                className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ${currentQuestionIndex === 0 
+                  ? 'opacity-50 cursor-not-allowed' 
+                  : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'}`}
+              >
+                上一题
+              </button>
+
+              <div className="space-x-3">
+                {!showAnswer ? (
+                  <button
+                    onClick={checkAnswer}
+                    disabled={!selectedAnswer}
+                    className={`px-6 py-2 rounded-lg font-medium transition-all duration-300 ${!selectedAnswer 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
+                  >
+                    检查答案
+                  </button>
+                ) : (
+                  <button
+                    onClick={nextQuestion}
+                    className="px-6 py-2 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300"
+                  >
+                    {currentQuestionIndex < questions.length - 1 ? '下一题' : '查看结果'}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Quiz;

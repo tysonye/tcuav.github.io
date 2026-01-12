@@ -5,6 +5,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import News from './components/News';
+import Quiz from './components/Quiz';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useTheme } from './hooks/useTheme';
@@ -27,6 +28,7 @@ function App() {
         <Skills />
         <Projects />
         <News />
+        <Quiz />
         <Contact />
       </main>
       <Footer />
