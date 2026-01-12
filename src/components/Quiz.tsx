@@ -118,9 +118,13 @@ const Quiz = () => {
     setShowSearchResults(false);
   };
 
-  // 计算正确率
+  // 计算正确率 - 基于当前已做题目数量
   const calculateAccuracy = () => {
-    return Math.round((score / questions.length) * 100);
+    // 当前已做题目数量 = 当前题目索引 + 1
+    const completedQuestions = currentQuestionIndex + 1;
+    // 避免除以0
+    if (completedQuestions === 0) return 0;
+    return Math.round((score / completedQuestions) * 100);
   };
 
   if (isLoading) {
@@ -248,15 +252,15 @@ const Quiz = () => {
               </div>
               
               {/* 题目信息 */}
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-2 sm:space-y-0">
                 <div className="text-lg font-semibold">
                   第 {currentQuestionIndex + 1}/{questions.length} 题
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                <div className="flex flex-wrap items-center space-x-4 sm:space-x-4 gap-y-1">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
                     正确率：{calculateAccuracy()}%
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                  <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
                     类型：{currentQuestion.type}
                   </div>
                 </div>
