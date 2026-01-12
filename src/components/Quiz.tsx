@@ -26,6 +26,8 @@ const Quiz = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<number[]>([]);
   const [showSearchResults, setShowSearchResults] = useState(false);
+  // 跟踪用户已提交答案的题目数量
+  const [submittedQuestions, setSubmittedQuestions] = useState(0);
 
   // 加载题目数据
   useEffect(() => {
@@ -56,8 +58,12 @@ const Quiz = () => {
 
     setShowAnswer(true);
     
-    if (selectedAnswer === questions[currentQuestionIndex].answer) {
-      setScore(prevScore => prevScore + 1);
+    // 只在第一次提交当前题目答案时更新分数和已提交题目数量
+    if (!showAnswer) {
+      setSubmittedQuestions(prev => prev + 1);
+      if (selectedAnswer === questions[currentQuestionIndex].answer) {
+        setScore(prevScore => prevScore + 1);
+      }
     }
   };
 
@@ -84,6 +90,7 @@ const Quiz = () => {
     setShowAnswer(false);
     setScore(0);
     setQuizCompleted(false);
+    setSubmittedQuestions(0);
   };
 
   // 搜索题目
@@ -118,13 +125,11 @@ const Quiz = () => {
     setShowSearchResults(false);
   };
 
-  // 计算正确率 - 基于当前已做题目数量
+  // 计算正确率 - 基于用户已提交答案的题目数量
   const calculateAccuracy = () => {
-    // 当前已做题目数量 = 当前题目索引 + 1
-    const completedQuestions = currentQuestionIndex + 1;
     // 避免除以0
-    if (completedQuestions === 0) return 0;
-    return Math.round((score / completedQuestions) * 100);
+    if (submittedQuestions === 0) return 0;
+    return Math.round((score / submittedQuestions) * 100);
   };
 
   if (isLoading) {
