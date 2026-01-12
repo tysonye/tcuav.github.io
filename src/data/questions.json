@@ -165,6 +165,10 @@
       {
         "key": "C",
         "content": "任意位置"
+      },
+      {
+        "key": "D",
+        "content": "顶部，远离金属物体的位置"
       }
     ],
     "answer": "D",
@@ -1180,6 +1184,10 @@
         "content": "行动"
       },
       {
+        "key": "B",
+        "content": "思想"
+      },
+      {
         "key": "C",
         "content": "人生观"
       },
@@ -1282,6 +1290,10 @@
       {
         "key": "C",
         "content": "每毫米内不少于 30 线对"
+      },
+      {
+        "key": "D",
+        "content": "每毫米内不少于 40 线对"
       }
     ],
     "answer": "B",
@@ -5422,6 +5434,10 @@
         "content": "集团利益"
       },
       {
+        "key": "C",
+        "content": "人民利益"
+      },
+      {
         "key": "D",
         "content": "个人利益"
       }
@@ -6583,6 +6599,10 @@
       {
         "key": "A",
         "content": "上升"
+      },
+      {
+        "key": "B",
+        "content": "下降"
       },
       {
         "key": "C",
@@ -9356,7 +9376,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9373,7 +9393,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9390,7 +9410,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9407,7 +9427,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9424,7 +9444,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9441,7 +9461,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9458,7 +9478,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9475,7 +9495,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9492,7 +9512,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9509,7 +9529,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9526,7 +9546,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9543,7 +9563,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9560,7 +9580,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9577,7 +9597,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9594,7 +9614,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9611,7 +9631,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9628,7 +9648,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9645,7 +9665,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9662,7 +9682,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9679,7 +9699,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9696,7 +9716,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9713,7 +9733,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9730,7 +9750,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9747,7 +9767,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9764,7 +9784,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9781,7 +9801,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9798,7 +9818,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9815,7 +9835,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9832,7 +9852,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9849,7 +9869,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9866,7 +9886,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9883,7 +9903,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9900,7 +9920,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9917,7 +9937,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -9934,7 +9954,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9951,7 +9971,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9968,7 +9988,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -9985,7 +10005,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10002,7 +10022,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10019,7 +10039,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10036,7 +10056,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10053,7 +10073,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10070,7 +10090,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10087,7 +10107,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10104,7 +10124,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10121,7 +10141,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10138,7 +10158,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10155,7 +10175,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10172,7 +10192,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10189,7 +10209,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10206,7 +10226,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10223,7 +10243,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10240,7 +10260,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10257,7 +10277,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10274,7 +10294,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10291,7 +10311,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10308,7 +10328,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10325,7 +10345,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10342,7 +10362,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10359,7 +10379,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10376,7 +10396,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10393,7 +10413,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10410,7 +10430,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10427,7 +10447,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10444,7 +10464,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10461,7 +10481,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10478,7 +10498,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10495,7 +10515,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10512,7 +10532,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10529,7 +10549,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10546,7 +10566,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10563,7 +10583,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10580,7 +10600,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10597,7 +10617,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10614,7 +10634,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10631,7 +10651,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10648,7 +10668,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10665,7 +10685,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10682,7 +10702,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10699,7 +10719,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10716,7 +10736,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10733,7 +10753,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10750,7 +10770,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10767,7 +10787,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10784,7 +10804,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10801,7 +10821,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10818,7 +10838,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10835,7 +10855,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10852,7 +10872,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10869,7 +10889,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10886,7 +10906,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10903,7 +10923,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10920,7 +10940,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10937,7 +10957,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10954,7 +10974,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -10971,7 +10991,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -10988,7 +11008,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11005,7 +11025,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11022,7 +11042,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11039,7 +11059,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11056,7 +11076,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11073,7 +11093,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11090,7 +11110,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11107,7 +11127,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11124,7 +11144,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11141,7 +11161,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11158,7 +11178,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11175,7 +11195,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11192,7 +11212,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11209,7 +11229,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11226,7 +11246,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11243,7 +11263,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11260,7 +11280,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11277,7 +11297,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11294,7 +11314,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11311,7 +11331,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11328,7 +11348,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11345,7 +11365,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11362,7 +11382,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11379,7 +11399,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11396,7 +11416,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11413,7 +11433,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11430,7 +11450,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   },
   {
@@ -11447,7 +11467,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "B",
     "analysis": ""
   },
   {
@@ -11464,7 +11484,7 @@
         "content": "否"
       }
     ],
-    "answer": "",
+    "answer": "A",
     "analysis": ""
   }
 ]
