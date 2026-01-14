@@ -67,10 +67,18 @@ const Quiz = () => {
         
         console.log('选中的题库长度:', selectedQuestions.length);
         
-        // 随机排序题目
-        const shuffledQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
-        setQuestions(shuffledQuestions);
-        console.log('打乱后的题目数量:', shuffledQuestions.length);
+        // 根据级别决定是否随机排序题目
+        let processedQuestions;
+        if (currentLevel === '三级') {
+          // 三级题目：按照固定顺序展示
+          processedQuestions = [...(selectedQuestions as Question[])];
+          console.log('三级题目按照固定顺序加载，数量:', processedQuestions.length);
+        } else {
+          // 其他级别：随机排序题目
+          processedQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
+          console.log('打乱后的题目数量:', processedQuestions.length);
+        }
+        setQuestions(processedQuestions);
         // 重置状态
         setCurrentQuestionIndex(0);
         setScore(0);
