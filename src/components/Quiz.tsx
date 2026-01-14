@@ -1,8 +1,4 @@
 import { useState, useEffect } from 'react';
-// 导入各级别题库
-import questionsLevel3 from '../data/questions-level3.json';
-import questionsLevel4 from '../data/questions-level4.json';
-import questionsLevel5 from '../data/questions-level5.json';
 
 interface Option {
   key: string;
@@ -39,36 +35,54 @@ const Quiz = () => {
 
   // 加载题目数据
   useEffect(() => {
-    const loadQuestions = () => {
+    const loadQuestions = async () => {
+      console.log('开始加载题目数据');
+      console.log('当前级别:', currentLevel);
       setIsLoading(true);
       
-      // 根据当前级别选择题库
-      let selectedQuestions;
-      switch (currentLevel) {
-        case '四级':
-          // 四级：使用questions-level4.json
-          selectedQuestions = questionsLevel4;
-          break;
-        case '五级':
-          // 五级：使用questions-level5.json
-          selectedQuestions = questionsLevel5;
-          break;
-        case '三级':
-        default:
-          // 三级：使用questions-level3.json
-          selectedQuestions = questionsLevel3;
-          break;
+      try {
+        // 根据当前级别动态导入题库
+        let selectedQuestions;
+        switch (currentLevel) {
+          case '四级':
+            // 四级：使用questions-level4.json
+            selectedQuestions = await import('../data/questions-level4.json');
+            console.log('四级题库长度:', selectedQuestions.default.length);
+            selectedQuestions = selectedQuestions.default;
+            break;
+          case '五级':
+            // 五级：使用questions-level5.json
+            selectedQuestions = await import('../data/questions-level5.json');
+            console.log('五级题库长度:', selectedQuestions.default.length);
+            selectedQuestions = selectedQuestions.default;
+            break;
+          case '三级':
+          default:
+            // 三级：使用questions-level3.json
+            selectedQuestions = await import('../data/questions-level3.json');
+            console.log('三级题库长度:', selectedQuestions.default.length);
+            selectedQuestions = selectedQuestions.default;
+            break;
+        }
+        
+        console.log('选中的题库长度:', selectedQuestions.length);
+        
+        // 随机排序题目
+        const shuffledQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
+        setQuestions(shuffledQuestions);
+        console.log('打乱后的题目数量:', shuffledQuestions.length);
+        // 重置状态
+        setCurrentQuestionIndex(0);
+        setScore(0);
+        setQuizCompleted(false);
+        setSubmittedQuestions(0);
+      } catch (error) {
+        console.error('加载题目数据失败:', error);
+        setQuestions([]);
+      } finally {
+        setIsLoading(false);
+        console.log('题目数据加载完成');
       }
-      
-      // 随机排序题目
-      const shuffledQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
-      setQuestions(shuffledQuestions);
-      // 重置状态
-      setCurrentQuestionIndex(0);
-      setScore(0);
-      setQuizCompleted(false);
-      setSubmittedQuestions(0);
-      setIsLoading(false);
     };
 
     loadQuestions();
@@ -225,6 +239,50 @@ const Quiz = () => {
             >
               重新开始
             </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // 检查是否有可用题目
+  if (questions.length === 0 && !isLoading) {
+    return (
+      <section id="quiz" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block relative">
+              在线刷题
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-blue-600 dark:bg-blue-400 w-24 rounded-full"></div>
+            </h2>
+          </div>
+          
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center">
+            <div className="mb-8">
+              <div className="text-6xl font-bold text-red-600 dark:text-red-400 mb-2">
+                ❌
+              </div>
+              <div className="text-2xl mb-4">
+                暂无题目数据
+              </div>
+              <div className="text-gray-600 dark:text-gray-300">
+                请检查题库文件是否正确加载，或者尝试切换到其他级别
+              </div>
+            </div>
+            
+            <div className="flex justify-center space-x-4">
+              {levels.map((level) => (
+                <button
+                  key={level}
+                  className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${currentLevel === level
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'}`}
+                  onClick={() => setCurrentLevel(level)}
+                >
+                  {level}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
