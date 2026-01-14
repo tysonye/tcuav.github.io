@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 // 导入各级别题库
-import questionsLevel3 from '../data/questions-三级.json';
-import questionsLevel4 from '../data/questions-四级.json';
-import questionsLevel5 from '../data/questions-五级.json';
+import questionsLevel3 from '../data/questions-level3.json';
+import questionsLevel4 from '../data/questions-level4.json';
+import questionsLevel5 from '../data/questions-level5.json';
 
 interface Option {
   key: string;
