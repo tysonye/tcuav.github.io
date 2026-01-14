@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-// 导入题库
-import allQuestions from '../data/questions.json';
+// 导入各级别题库
+import questionsLevel3 from '../data/questions-level3.json';
+import questionsLevel4 from '../data/questions-level4.json';
+import questionsLevel5 from '../data/questions-level5.json';
 
 interface Option {
   key: string;
@@ -40,21 +42,21 @@ const Quiz = () => {
     const loadQuestions = () => {
       setIsLoading(true);
       
-      // 根据当前级别选择题库范围（每个级别显示500道题）
+      // 根据当前级别选择题库
       let selectedQuestions;
       switch (currentLevel) {
         case '四级':
-          // 四级：显示第501-1000题
-          selectedQuestions = allQuestions.slice(500, 1000);
+          // 四级：使用questions-level4.json
+          selectedQuestions = questionsLevel4;
           break;
         case '五级':
-          // 五级：显示前500题（如果有更多题可扩展）
-          selectedQuestions = allQuestions.slice(0, 500);
+          // 五级：使用questions-level5.json
+          selectedQuestions = questionsLevel5;
           break;
         case '三级':
         default:
-          // 三级：显示前500题
-          selectedQuestions = allQuestions.slice(0, 500);
+          // 三级：使用questions-level3.json
+          selectedQuestions = questionsLevel3;
           break;
       }
       
