@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-// 导入各级别题库
-import questionsLevel3 from '../data/questions-level3.json';
-import questionsLevel4 from '../data/questions-level4.json';
-import questionsLevel5 from '../data/questions-level5.json';
+// 导入题库
+import allQuestions from '../data/questions.json';
 
 interface Option {
   key: string;
@@ -41,23 +39,9 @@ const Quiz = () => {
   useEffect(() => {
     const loadQuestions = () => {
       setIsLoading(true);
-      // 根据当前级别选择题库
-      let selectedQuestions;
-      switch (currentLevel) {
-        case '四级':
-          selectedQuestions = questionsLevel4;
-          break;
-        case '五级':
-          selectedQuestions = questionsLevel5;
-          break;
-        case '三级':
-        default:
-          selectedQuestions = questionsLevel3;
-          break;
-      }
-      
+      // 使用所有题目作为数据源
       // 随机排序题目
-      const shuffledQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
+      const shuffledQuestions = [...(allQuestions as Question[])].sort(() => Math.random() - 0.5);
       setQuestions(shuffledQuestions);
       // 重置状态
       setCurrentQuestionIndex(0);
