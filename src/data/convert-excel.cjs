@@ -21,54 +21,54 @@ const isQuestionExists = (newQuestion, existingQuestions) => {
 // Process each question from Excel
 const newQuestions = [];
 excelData.forEach((row, index) => {
-  // Skip empty rows
-  if (!row['关键词']) {
+  // Skip header row if needed
+  if (index === 0 && row['题目内容']) {
     return;
   }
 
-  // Extract question type and content from '关键词' column
-  // Format: "单选题\n1: 关于无人机电池使用，以下( )描述是正确的。"
-  const keywordText = row['关键词'];
-  const typeMatch = keywordText.match(/^(单选题|多选题|判断题)/);
-  const contentMatch = keywordText.match(/\d+:\s*(.*)$/s);
-  
-  if (!typeMatch || !contentMatch) {
-    return;
-  }
-
+  // Extract question data
   const question = {
     id: existingQuestions.length + newQuestions.length + 1,
-    type: typeMatch[1] || '单选题',
-    content: contentMatch[1] || '',
+    type: row['类型'] || '单选题',
+    content: row['题目内容'] || '',
     options: [],
     answer: '',
-    analysis: ''
+    analysis: row['解析'] || ''
   };
 
-  // Extract options from xuan, xuan1, xuan2, xuan3 columns
-  const optionKeys = ['A', 'B', 'C', 'D'];
-  const optionColumns = ['xuan', 'xuan1', 'xuan2', 'xuan3'];
-  
-  optionColumns.forEach((col, idx) => {
-    const optionContent = row[col];
-    if (optionContent) {
-      // Remove the option letter prefix if present (e.g., "A 无人机电池可以在任何温度下使用。" -> "无人机电池可以在任何温度下使用。")
-      const cleanedContent = optionContent.replace(/^[A-D]\s*?/u, '');
-      question.options.push({
-        key: optionKeys[idx],
-        content: cleanedContent
-      });
-    }
-  });
+  // Add options based on type
+  if (question.type === '单选题' || question.type === '多选题') {
+    // Extract options from columns like 'A选项', 'B选项', etc.
+    const optionKeys = ['A', 'B', 'C', 'D', 'E', 'F'];
+    optionKeys.forEach(key => {
+      const optionContent = row[`${key}选项`];
+      if (optionContent) {
+        question.options.push({
+          key: key,
+          content: optionContent
+        });
+      }
+    });
+  } else if (question.type === '判断题') {
+    // For判断题, always add True/False options
+    question.options = [
+      { key: 'A', content: '正确' },
+      { key: 'B', content: '错误' }
+    ];
+  }
 
-  // Extract answer from successbox column
-  // Format: "正确答案：D"
-  const successboxText = row['successbox'];
-  if (successboxText) {
-    const answerMatch = successboxText.match(/正确答案：([A-D])/);
-    if (answerMatch) {
-      question.answer = answerMatch[1];
+  // Set answer based on type
+  const answerText = row['答案'] || '';
+  if (question.type === '判断题') {
+    // Convert 正确/错误 to A/B
+    if (answerText === '正确' || answerText === '是' || answerText === '对') {
+      question.answer = 'A';
+    } else if (answerText === '错误' || answerText === '否' || answerText === '错') {
+      question.answer = 'B';
     }
+  } else {
+    // For other types, use the answer text directly
+    question.answer = answerText;
   }
 
   // Only add if content is not empty and question doesn't already exist
