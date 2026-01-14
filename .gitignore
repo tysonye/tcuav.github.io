@@ -29,3 +29,13 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Excel files
+*.xlsx
+
+# Conversion scripts (keep only the main one)
+convert-excel.cjs
+convert-excel-fixed.cjs
+convert-excel.js
+migrate-simple.cjs
+migrateToIssues.ts

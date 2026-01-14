@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
-import questionsData from '../data/questions.json';
+// 导入各级别题库
+import questionsLevel3 from '../data/questions-三级.json';
+import questionsLevel4 from '../data/questions-四级.json';
+import questionsLevel5 from '../data/questions-五级.json';
 
 interface Option {
   key: string;
@@ -16,6 +19,11 @@ interface Question {
 }
 
 const Quiz = () => {
+  // 定义级别选项
+  const levels = ['三级', '四级', '五级'];
+  
+  // 状态管理
+  const [currentLevel, setCurrentLevel] = useState('三级'); // 默认选择三级
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
@@ -32,14 +40,35 @@ const Quiz = () => {
   // 加载题目数据
   useEffect(() => {
     const loadQuestions = () => {
+      setIsLoading(true);
+      // 根据当前级别选择题库
+      let selectedQuestions;
+      switch (currentLevel) {
+        case '四级':
+          selectedQuestions = questionsLevel4;
+          break;
+        case '五级':
+          selectedQuestions = questionsLevel5;
+          break;
+        case '三级':
+        default:
+          selectedQuestions = questionsLevel3;
+          break;
+      }
+      
       // 随机排序题目
-      const shuffledQuestions = [...(questionsData as Question[])].sort(() => Math.random() - 0.5);
+      const shuffledQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
       setQuestions(shuffledQuestions);
+      // 重置状态
+      setCurrentQuestionIndex(0);
+      setScore(0);
+      setQuizCompleted(false);
+      setSubmittedQuestions(0);
       setIsLoading(false);
     };
 
     loadQuestions();
-  }, []);
+  }, [currentLevel]);
 
   // 重置当前题目的选择
   useEffect(() => {
@@ -208,6 +237,22 @@ const Quiz = () => {
             在线刷题
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-blue-600 dark:bg-blue-400 w-24 rounded-full"></div>
           </h2>
+          
+          {/* 级别选择标签 */}
+          <div className="flex justify-center space-x-4 mb-6">
+            {levels.map((level) => (
+              <button
+                key={level}
+                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${currentLevel === level
+                  ? 'bg-blue-600 text-white shadow-lg'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700'}`}
+                onClick={() => setCurrentLevel(level)}
+              >
+                {level}
+              </button>
+            ))}
+          </div>
+          
           <p className="text-xl text-gray-600 dark:text-gray-300">
             共 {questions.length} 道题目，测试你的知识掌握程度
           </p>
@@ -259,8 +304,38 @@ const Quiz = () => {
               
               {/* 题目信息 */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-2 sm:space-y-0">
-                <div className="text-lg font-semibold">
-                  第 {currentQuestionIndex + 1}/{questions.length} 题
+                <div className="flex items-center space-x-3">
+                  {/* 上一题按钮 */}
+                  <button
+                    onClick={prevQuestion}
+                    disabled={currentQuestionIndex === 0}
+                    className={`p-2 rounded-full transition-all duration-300 ${currentQuestionIndex === 0 
+                      ? 'opacity-50 cursor-not-allowed text-gray-400'
+                      : 'hover:bg-blue-100 dark:hover:bg-blue-900/30 text-gray-700 dark:text-gray-300'}`}
+                    aria-label="上一题"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  
+                  <div className="text-lg font-semibold">
+                    第 {currentQuestionIndex + 1}/{questions.length} 题
+                  </div>
+                  
+                  {/* 下一题按钮 */}
+                  <button
+                    onClick={nextQuestion}
+                    disabled={currentQuestionIndex === questions.length - 1}
+                    className={`p-2 rounded-full transition-all duration-300 ${currentQuestionIndex === questions.length - 1 
+                      ? 'opacity-50 cursor-not-allowed text-gray-400'
+                      : 'hover:bg-blue-100 dark:hover:bg-blue-900/30 text-gray-700 dark:text-gray-300'}`}
+                    aria-label="下一题"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
                 <div className="flex flex-wrap items-center space-x-4 sm:space-x-4 gap-y-1">
                   <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
