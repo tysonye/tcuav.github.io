@@ -39,9 +39,27 @@ const Quiz = () => {
   useEffect(() => {
     const loadQuestions = () => {
       setIsLoading(true);
-      // 使用所有题目作为数据源
+      
+      // 根据当前级别选择题库范围（每个级别显示500道题）
+      let selectedQuestions;
+      switch (currentLevel) {
+        case '四级':
+          // 四级：显示第501-1000题
+          selectedQuestions = allQuestions.slice(500, 1000);
+          break;
+        case '五级':
+          // 五级：显示前500题（如果有更多题可扩展）
+          selectedQuestions = allQuestions.slice(0, 500);
+          break;
+        case '三级':
+        default:
+          // 三级：显示前500题
+          selectedQuestions = allQuestions.slice(0, 500);
+          break;
+      }
+      
       // 随机排序题目
-      const shuffledQuestions = [...(allQuestions as Question[])].sort(() => Math.random() - 0.5);
+      const shuffledQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
       setQuestions(shuffledQuestions);
       // 重置状态
       setCurrentQuestionIndex(0);
