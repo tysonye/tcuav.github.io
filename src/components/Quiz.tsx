@@ -22,7 +22,7 @@ const Quiz = () => {
   const [currentLevel, setCurrentLevel] = useState('三级'); // 默认选择三级
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
+  const [selectedAnswer, setSelectedAnswer] = useState<string[]>([]);
   const [showAnswer, setShowAnswer] = useState(false);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
@@ -90,23 +90,44 @@ const Quiz = () => {
 
   // 重置当前题目的选择
   useEffect(() => {
-    setSelectedAnswer('');
+    setSelectedAnswer([]);
     setShowAnswer(false);
   }, [currentQuestionIndex]);
 
   // 处理选项选择
   const handleOptionSelect = (optionKey: string) => {
-    setSelectedAnswer(optionKey);
+    const currentQuestion = questions[currentQuestionIndex];
+    
+    if (currentQuestion.type === '多选题') {
+      // 多选题：切换选项状态
+      setSelectedAnswer(prev => {
+        if (prev.includes(optionKey)) {
+          // 如果已选中，移除
+          return prev.filter(key => key !== optionKey);
+        } else {
+          // 如果未选中，添加
+          return [...prev, optionKey].sort(); // 排序保持一致性
+        }
+      });
+    } else {
+      // 单选题：替换选择
+      setSelectedAnswer([optionKey]);
+    }
   };
 
   // 检查答案
   const checkAnswer = () => {
-    if (!selectedAnswer) return;
+    if (!selectedAnswer || selectedAnswer.length === 0) return;
 
     // 只在第一次提交当前题目答案时更新分数和已提交题目数量
     if (!showAnswer) {
       setSubmittedQuestions(prev => prev + 1);
-      if (selectedAnswer === questions[currentQuestionIndex].answer) {
+      
+      const currentQuestion = questions[currentQuestionIndex];
+      // 将选中答案数组转换为字符串（如 ['A', 'B'] → 'AB'）
+      const selectedAnswerStr = selectedAnswer.sort().join('');
+      
+      if (selectedAnswerStr === currentQuestion.answer) {
         setScore(prevScore => prevScore + 1);
       }
     }
@@ -134,7 +155,7 @@ const Quiz = () => {
   // 重新开始
   const restartQuiz = () => {
     setCurrentQuestionIndex(0);
-    setSelectedAnswer('');
+    setSelectedAnswer([]);
     setShowAnswer(false);
     setScore(0);
     setQuizCompleted(false);
@@ -431,34 +452,45 @@ const Quiz = () => {
 
             {/* 选项 */}
             <div className="space-y-3 mb-6">
-              {currentQuestion.options.map((option, index) => (
-                <div
-                  key={index}
-                  className={`p-4 rounded-lg border cursor-pointer transition-all duration-300 ${selectedAnswer === option.key 
-                    ? (showAnswer 
-                      ? (option.key === currentQuestion.answer 
-                        ? 'border-green-500 bg-green-50 dark:bg-green-900/20' 
-                        : 'border-red-500 bg-red-50 dark:bg-red-900/20') 
-                      : 'border-blue-500 bg-blue-50 dark:bg-blue-900/20') 
-                    : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30'}`}
-                  onClick={() => handleOptionSelect(option.key)}
-                >
-                  <div className="flex items-start">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 ${selectedAnswer === option.key 
+              {currentQuestion.options.map((option, index) => {
+                // 检查选项是否被选中
+                const isSelected = selectedAnswer.includes(option.key);
+                // 检查选项是否是正确答案的一部分
+                const isCorrectAnswer = currentQuestion.answer.includes(option.key);
+                
+                return (
+                  <div
+                    key={index}
+                    className={`p-4 rounded-lg border cursor-pointer transition-all duration-300 ${isSelected 
                       ? (showAnswer 
-                        ? (option.key === currentQuestion.answer 
+                        ? (isCorrectAnswer 
+                          ? 'border-green-500 bg-green-50 dark:bg-green-900/20' 
+                          : 'border-red-500 bg-red-50 dark:bg-red-900/20') 
+                        : 'border-blue-500 bg-blue-50 dark:bg-blue-900/20') 
+                      : showAnswer && isCorrectAnswer 
+                        ? 'border-green-500 bg-green-50 dark:bg-green-900/20' 
+                        : 'border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/30'}`}
+                    onClick={() => handleOptionSelect(option.key)}
+                  >
+                    <div className="flex items-start">
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center mr-3 flex-shrink-0 ${isSelected 
+                        ? (showAnswer 
+                          ? (isCorrectAnswer 
+                            ? 'bg-green-500 text-white' 
+                            : 'bg-red-500 text-white') 
+                          : 'bg-blue-500 text-white') 
+                        : showAnswer && isCorrectAnswer 
                           ? 'bg-green-500 text-white' 
-                          : 'bg-red-500 text-white') 
-                        : 'bg-blue-500 text-white') 
-                      : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'}`}>
-                      {option.key}
-                    </div>
-                    <div className={selectedAnswer === option.key ? 'font-medium' : ''}>
-                      {option.content}
+                          : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'}`}>
+                        {option.key}
+                      </div>
+                      <div className={isSelected ? 'font-medium' : ''}>
+                        {option.content}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* 查看解析 */}
