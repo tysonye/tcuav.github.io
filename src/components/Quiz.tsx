@@ -19,7 +19,7 @@ const Quiz = () => {
   const levels = ['三级', '四级', '五级'];
   
   // 状态管理
-  const [currentLevel, setCurrentLevel] = useState('三级'); // 默认选择三级
+  const [currentLevel, setCurrentLevel] = useState('五级'); // 默认选择五级
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string[]>([]);
