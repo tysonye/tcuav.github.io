@@ -1,4 +1,4 @@
-const Footer = ({ onLegalClick, onTermsClick }: { onLegalClick: () => void; onTermsClick: () => void }) => {
+const Footer = ({ onLegalClick, onTermsClick, onPrivacyClick }: { onLegalClick: () => void; onTermsClick: () => void; onPrivacyClick: () => void }) => {
   return (
     <footer className="bg-gray-900 text-white py-16 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -47,7 +47,6 @@ const Footer = ({ onLegalClick, onTermsClick }: { onLegalClick: () => void; onTe
                 </svg>
                 <div>
                   <p className="text-gray-400">+86 133 9715 5725</p>
-                  <p className="text-gray-500 text-sm">+86 138 0013 8000</p>
                 </div>
               </li>
 
@@ -71,7 +70,13 @@ const Footer = ({ onLegalClick, onTermsClick }: { onLegalClick: () => void; onTe
               &copy; {new Date().getFullYear()} 安徽通程智能科技有限公司. 保留所有权利.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">隐私政策</a>
+              <a 
+                href="javascript:void(0)" 
+                className="text-gray-500 hover:text-white transition-colors text-sm"
+                onClick={onPrivacyClick}
+              >
+                隐私政策
+              </a>
               <a 
                 href="javascript:void(0)" 
                 className="text-gray-500 hover:text-white transition-colors text-sm"

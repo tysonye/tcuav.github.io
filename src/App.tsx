@@ -95,10 +95,60 @@ const termsOfService = `服务条款
 8. 条款修改
 我们可能不定期更新本条款。修改后的条款将通过网站公布，您继续使用服务即视为接受修改。重大变更将提前通知。`;
 
+// 隐私策略内容
+const privacyPolicy = `隐私策略
+生效日期：2026年1月15日
+
+1. 引言
+通程智能科技有限公司（以下简称"我们"或"本公司"）尊重并保护您的个人隐私。本隐私政策旨在向您说明我们如何收集、使用、存储和保护您在使用通程智能网站（https://uav.xibai.xin/，以下简称"本网站"）时提供的个人信息。
+
+2. 我们收集的信息
+个人身份信息：当您注册账户、咨询产品或服务时，我们可能会收集您的姓名、联系方式、电子邮箱、公司信息等。
+设备与使用信息：包括IP地址、浏览器类型、操作系统、访问时间、页面浏览记录等。
+无人机相关数据：若您使用我们的无人机相关服务，我们可能会收集飞行数据、地理位置信息、作业区域图像等（仅在获得您明确授权的情况下）。
+
+3. 信息使用目的
+为您提供产品咨询、技术支持和售后服务
+改进我们的产品与服务，开发新功能
+发送您可能感兴趣的产品更新、行业资讯（您可以随时退订）
+履行法律法规要求的义务
+保障网站与服务的安全稳定运行
+
+4. 信息共享与披露
+我们不会将您的个人信息出售给第三方。仅在以下情况可能共享信息：
+获得您的明确同意
+为提供您所需服务而必须与服务提供商共享
+遵守法律法规或响应政府部门要求
+保护本公司、用户或公众的合法权益
+
+5. 您的权利
+您有权：
+查询、更正或补充您的个人信息
+删除您的个人信息
+撤回对个人信息处理的同意
+获取您的个人信息副本
+限制或拒绝我们处理您的个人信息
+
+6. 数据安全
+我们采用符合行业标准的安全措施保护您的个人信息，包括数据加密、访问控制、安全审计等，防止数据遭到未经授权的访问、泄露、篡改或销毁。
+
+7. Cookie政策
+本网站使用Cookie技术优化用户体验。您可以通过浏览器设置拒绝或删除Cookie，但这可能影响部分功能的正常使用。
+
+8. 隐私政策更新
+我们可能会不定期更新本隐私政策。重大变更将通过网站公告或邮件通知您。请您定期查看本政策的最新版本。
+
+9. 联系我们
+如对本隐私政策有任何疑问，或需行使您的个人信息权利，请通过以下方式联系我们：
+
+电话：+86 13397155725
+地址：安徽省桐城市文昌街道和平路和平尚城6#209室`;
+
 function App() {
   const { isDarkMode, toggleTheme } = useTheme();
   const [showLegalModal, setShowLegalModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   
   useEffect(() => {
     // 初始化平滑滚动
@@ -120,6 +170,7 @@ function App() {
       <Footer 
         onLegalClick={() => setShowLegalModal(true)}
         onTermsClick={() => setShowTermsModal(true)}
+        onPrivacyClick={() => setShowPrivacyModal(true)}
       />
       
       {/* 法律声明模态框 */}
@@ -174,6 +225,35 @@ function App() {
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">服务条款</h2>
               <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                 {termsOfService}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* 隐私策略模态框 */}
+      {showPrivacyModal && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowPrivacyModal(false);
+            }
+          }}
+        >
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
+              <button
+                onClick={() => setShowPrivacyModal(false)}
+                className="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">隐私策略</h2>
+              <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                {privacyPolicy}
               </div>
             </div>
           </div>
