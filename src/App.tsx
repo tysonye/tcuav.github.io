@@ -54,9 +54,51 @@ const legalDeclaration = `法律声明
 电话：+86 13397155725
 地址：安徽省桐城市文昌街道和平路和平尚城6#209室`;
 
+// 服务条款内容
+const termsOfService = `服务条款
+生效日期：2026年1月15日
+
+1. 服务范围
+通程智能科技有限公司（以下简称"本公司"）通过网站（https://uav.xibai.xin/）向用户提供无人机解决方案展示、技术咨询、产品信息等服务（以下简称本服务）。
+
+2. 账户注册
+使用部分功能需注册账户，您应提供真实、准确、完整的个人信息
+您有责任维护账户安全，对账户下的所有活动承担责任
+如发现账户异常，请立即通知我们
+
+3. 用户义务
+不得利用本服务从事违法违规活动
+不得上传或传播违法、侵权、色情、暴力等内容
+不得干扰本服务正常运行或损害其他用户权益
+遵守无人机相关法律法规，在合法授权范围内使用无人机相关技术与服务
+
+4. 服务变更与终止
+我们保留在不事先通知的情况下变更、暂停或终止部分或全部服务的权利
+您可在任何时候停止使用本服务
+违反本条款时，我们有权终止或限制您使用服务
+
+5. 免责声明
+本网站内容仅供参考，不构成专业建议，使用相关技术前请咨询专业人士
+无人机操作涉及安全风险，使用我们推荐的产品或技术方案需遵守当地法律法规
+我们不对因不可抗力、第三方行为、用户误操作等导致的损失承担责任
+您理解并同意，无人机在农业、林业、电力等领域的应用效果可能受环境、气候、操作等多种因素影响
+
+6. 知识产权
+本网站所有内容（包括文字、图片、视频、软件等）的知识产权归本公司或授权方所有
+未经书面许可，不得复制、修改、传播或用于商业目的
+您在使用服务过程中创造的内容，其权利归属根据具体约定确定
+
+7. 适用法律与争议解决
+本条款的解释、效力及纠纷解决均适用中华人民共和国法律
+任何因本条款引起的争议，应通过友好协商解决；协商不成的，提交本公司所在地有管辖权的人民法院诉讼解决
+
+8. 条款修改
+我们可能不定期更新本条款。修改后的条款将通过网站公布，您继续使用服务即视为接受修改。重大变更将提前通知。`;
+
 function App() {
   const { isDarkMode, toggleTheme } = useTheme();
   const [showLegalModal, setShowLegalModal] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
   
   useEffect(() => {
     // 初始化平滑滚动
@@ -75,7 +117,10 @@ function App() {
         <Quiz />
         <Contact />
       </main>
-      <Footer onLegalClick={() => setShowLegalModal(true)} />
+      <Footer 
+        onLegalClick={() => setShowLegalModal(true)}
+        onTermsClick={() => setShowTermsModal(true)}
+      />
       
       {/* 法律声明模态框 */}
       {showLegalModal && (
@@ -100,6 +145,35 @@ function App() {
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">法律声明</h2>
               <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                 {legalDeclaration}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* 服务条款模态框 */}
+      {showTermsModal && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowTermsModal(false);
+            }
+          }}
+        >
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
+              <button
+                onClick={() => setShowTermsModal(false)}
+                className="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">服务条款</h2>
+              <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                {termsOfService}
               </div>
             </div>
           </div>

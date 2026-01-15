@@ -1,4 +1,4 @@
-const Footer = ({ onLegalClick }: { onLegalClick: () => void }) => {
+const Footer = ({ onLegalClick, onTermsClick }: { onLegalClick: () => void; onTermsClick: () => void }) => {
   return (
     <footer className="bg-gray-900 text-white py-16 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -72,7 +72,13 @@ const Footer = ({ onLegalClick }: { onLegalClick: () => void }) => {
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">隐私政策</a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">服务条款</a>
+              <a 
+                href="javascript:void(0)" 
+                className="text-gray-500 hover:text-white transition-colors text-sm"
+                onClick={onTermsClick}
+              >
+                服务条款
+              </a>
               <a 
                 href="javascript:void(0)" 
                 className="text-gray-500 hover:text-white transition-colors text-sm"
