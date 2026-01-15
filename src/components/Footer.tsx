@@ -1,4 +1,4 @@
-const Footer = () => {
+const Footer = ({ onLegalClick }: { onLegalClick: () => void }) => {
   return (
     <footer className="bg-gray-900 text-white py-16 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -73,7 +73,16 @@ const Footer = () => {
             <div className="flex space-x-6">
               <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">隐私政策</a>
               <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">服务条款</a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">法律声明</a>
+              <a 
+                href="#" 
+                className="text-gray-500 hover:text-white transition-colors text-sm"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onLegalClick();
+                }}
+              >
+                法律声明
+              </a>
             </div>
           </div>
         </div>
