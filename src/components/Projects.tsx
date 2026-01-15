@@ -27,6 +27,16 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true)
   
   // 从GitHub Issues获取项目数据
+  // 从URL查询参数获取分类
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.hash.split('?')[1])
+    const categoryFromUrl = urlParams.get('category')
+    if (categoryFromUrl && projectCategories.some(cat => cat.id === categoryFromUrl)) {
+      setActiveCategory(categoryFromUrl)
+    }
+  }, [])
+  
+  // 从GitHub Issues获取项目数据
   useEffect(() => {
     const loadProjects = async () => {
       setIsLoading(true)
