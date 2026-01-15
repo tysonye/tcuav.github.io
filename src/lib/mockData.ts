@@ -181,9 +181,7 @@ export const projectCategories = [
   { id: 'agriculture', name: '农业植保' },
   { id: 'surveying', name: '空中测航' },
   { id: 'aerial-photo', name: '影视航拍' },
-  { id: 'event-photo', name: '活动拍摄' },
   { id: 'vr-panorama', name: 'VR全景' },
-  { id: 'ar-city', name: 'AR城市影像' },
   { id: 'power', name: '电力巡检' },
   { id: 'training', name: 'CAAC培训' }
 ]
@@ -470,41 +468,7 @@ export const projectsData = [
       ]
     }
   },
-  {
-    id: 9,
-    title: '活动拍摄服务',
-    description: '无人机被誉为“空中机器人”，因其轻型、便于携带，常常被运用到广告、活动、新闻等方面的现场拍摄，提供独特的空中视角。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20event%20photography%2C%20concert%20aerial%20shot%2C%20sports%20event%2C%20live%20broadcast&sign=0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p',
-    technologies: ['高清拍摄', '实时传输', '快速部署', '灵活飞行', '现场协调'],
-    link: '#',
-    client: '合肥市文化旅游局',
-    year: '2025',
-    category: 'event-photo',
-    details: {
-      overview: '为广告、活动、新闻等方面提供现场拍摄服务，无人机因其轻型、便于携带，能提供独特的空中视角，增强活动的视觉表现力。',
-      features: [
-        '高清拍摄：4K高清视频和照片拍摄',
-        '实时传输：现场画面实时回传',
-        '快速部署：15分钟内完成设备 setup',
-        '灵活飞行：适应不同活动场地和需求',
-        '专业团队：经验丰富的飞手和摄影师'
-      ],
-      benefits: [
-        '独特空中视角：提供地面拍摄无法获得的视角',
-        '增强活动影响力：提升活动的视觉效果和传播力',
-        '快速响应：适应活动现场的动态变化',
-        '提高传播效果：为活动宣传提供高质量素材',
-        '专业服务：全程专业团队支持和协调'
-      ],
-      implementation: [
-        '活动需求沟通和方案制定',
-        '现场勘查和飞行许可申请',
-        '设备准备和测试',
-        '现场拍摄和实时传输',
-        '素材整理和交付'
-      ]
-    }
-  },
+
   {
     id: 10,
     title: 'VR全景解决方案',
@@ -540,42 +504,7 @@ export const projectsData = [
       ]
     }
   },
-  {
-    id: 11,
-    title: 'AR城市影像解决方案',
-    description: '将无人机航拍画面、无人机摄影测量重建场景与参数化编程动画三者融合为一体，创造出震撼的AR城市影像效果。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=AR%20city%20imaging%20with%20drone%20footage%2C%20augmented%20reality%2C%203D%20city%20model%2C%20interactive%20visualization&sign=2a3b4c5d6e7f8g9i0j1k2l3m4n5o6p',
-    technologies: ['3D重建', 'AR技术', '动画制作', '数据融合', '交互设计'],
-    link: '#',
-    client: '合肥市规划局',
-    year: '2025',
-    category: 'ar-city',
-    details: {
-      overview: '将无人机航拍画面、无人机摄影测量重建场景与参数化编程动画三者融合为一体，创造出震撼的AR城市影像效果，为城市规划、宣传展示等提供创新解决方案。',
-      features: [
-        '3D城市重建：基于无人机摄影测量数据重建高精度3D城市模型',
-        'AR技术融合：将虚拟元素与现实场景无缝融合',
-        '动画制作：添加参数化编程动画，增强视觉效果',
-        '交互设计：支持用户交互和场景探索',
-        '多平台展示：支持大屏展示、移动端、VR设备等多种方式',
-      ],
-      benefits: [
-        '创新展示方式：为城市宣传和规划提供全新的展示手段',
-        '增强视觉效果：震撼的AR融合效果，提升观众体验',
-        '提高传播力：便于在社交媒体和网络平台传播',
-        '支持决策：为城市规划和建设提供直观的可视化支持',
-        '提升城市形象：展示城市的现代化和科技感',
-      ],
-      implementation: [
-        '项目需求分析和创意设计',
-        '无人机航拍和数据采集',
-        '3D城市模型重建',
-        'AR动画制作和融合',
-        '交互设计和平台开发',
-        '项目部署和维护',
-      ]
-    }
-  }
+
 ]
 
 // 新闻分类

@@ -5,10 +5,9 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center pt-20 px-4 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-blue-900/30">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
-              探索空中智能未来<br />
-              <span className="text-5xl md:text-7xl">安徽通程智能科技有限公司</span>
+          <div className="md:w-2/3 text-center md:text-left mb-10 md:mb-0">
+            <h1 className="font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
+              <span className="text-[clamp(1.5rem,4vw,2.8rem)] whitespace-nowrap">安徽通程智能科技有限公司</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6">
