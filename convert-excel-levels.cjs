@@ -75,20 +75,18 @@ function convertExcelToJson(level, filePath) {
     let answer = '';
     const answerText = row['successbox'] || '';
     if (typeof answerText === 'string') {
-      // 提取纯答案字母
-      const answerMatch = answerText.match(/正确答案：([A-Z])/i);
-      if (answerMatch) {
-        answer = answerMatch[1].toUpperCase();
-      } else {
-        answer = answerText.trim().toUpperCase();
-      }
-      
       // 处理判断题特殊情况
       if (type === '判断题') {
-        if (answerText.includes('正确') || answerText.includes('是')) {
+        if (answerText === '正确答案：正确' || answerText === '正确答案：是') {
           answer = 'A';
-        } else if (answerText.includes('错误') || answerText.includes('否')) {
+        } else if (answerText === '正确答案：错误' || answerText === '正确答案：否') {
           answer = 'B';
+        }
+      } else {
+        // 提取单选题和多选题的字母答案
+        const answerMatch = answerText.match(/正确答案：\s*([A-D\s]+)/);
+        if (answerMatch && answerMatch[1]) {
+          answer = answerMatch[1].replace(/\s+/g, '').toUpperCase();
         }
       }
     } else if (typeof answerText === 'number') {
