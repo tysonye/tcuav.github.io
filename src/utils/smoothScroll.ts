@@ -31,9 +31,9 @@ export const smoothScrollTo = (target: string) => {
 // 为所有锚点链接添加平滑滚动
 export const initSmoothScroll = () => {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', (e) => {
       e.preventDefault()
-      const href = this.getAttribute('href') || '#'
+      const href = anchor.getAttribute('href') || '#'
       smoothScrollTo(href)
     })
   })

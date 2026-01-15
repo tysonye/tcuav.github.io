@@ -7,7 +7,8 @@ export const skillsData = [
     level: 95,
     description: '自主研发多型号无人机，满足不同行业需求',
     details: {
-      title: '无人机设计技术',
+      title: '无人机设计',
+      imageUrl: '/image/wrjsj.jpg',
       content: [
         '自主研发多型号无人机，包括固定翼、多旋翼、垂直起降等多种构型',
         '采用先进的轻量化材料和结构设计，提高无人机的续航能力和负载能力',
@@ -25,6 +26,7 @@ export const skillsData = [
     description: '专业的影视航拍技术，为影视制作提供高质量的航拍画面',
     details: {
       title: '影视航拍技术',
+      imageUrl: '/image/yshpjs.jpg',
       content: [
         '配备专业影视设备，支持4K/8K超高清拍摄',
         '采用先进的稳定云台技术，确保航拍画面平稳流畅',
@@ -42,6 +44,7 @@ export const skillsData = [
     description: '虚拟现实和增强现实技术，为客户提供沉浸式的视觉体验',
     details: {
       title: 'VR/AR技术',
+      imageUrl: '/image/VRAR.jpg',
       content: [
         '掌握VR全景拍摄和制作技术，能制作高质量的720°全景内容',
         '具备AR技术融合能力，将虚拟元素与现实场景无缝融合',
@@ -59,7 +62,7 @@ export const skillsData = [
     description: '高精度飞行控制系统，支持多种飞行模式',
     details: {
       title: '飞控系统技术',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20flight%20control%20system%20technology%2C%20precision%20navigation%2C%20autonomous%20flight&sign=1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p',
+      imageUrl: '/image/fkxt.jpg',
       content: [
         '自主研发的高精度飞行控制系统，支持手动、半自动、全自动三种飞行模式',
         '采用先进的传感器融合算法，实现无人机的精准定位和姿态控制',
@@ -77,7 +80,7 @@ export const skillsData = [
     description: '无人机低空数据与卫星高空数据融合应用',
     details: {
       title: '卫星遥感融合技术',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Satellite%20remote%20sensing%20fusion%20technology%2C%20drone%20low%20altitude%20data%20fusion&sign=2a3b4c5d6e7f8g9h0i1j2k3l4m5n6o7p',
+      imageUrl: '/image/wxrh.jpg',
       content: [
         '将无人机低空高精度数据与卫星高空广域数据进行融合，实现空天地一体化监测',
         '采用先进的数据融合算法，提高数据的精度和可靠性',
@@ -95,7 +98,7 @@ export const skillsData = [
     description: '水域场景AI智能识别，钓鱼行为识别准确率达90%+',
     details: {
       title: 'AI智能识别技术',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=AI%20intelligent%20recognition%20technology%2C%20drone%20monitoring%2C%20water%20surface%20detection&sign=3a4b5c6d7e8f9g0i1j2k3l4m5n6o8p',
+      imageUrl: '/image/AI.jpg',
       content: [
         '针对水域场景开发的AI智能识别算法，钓鱼行为识别准确率达90%以上',
         '支持多种目标识别，包括船只、人员、植被、建筑物等',
@@ -113,7 +116,7 @@ export const skillsData = [
     description: '实时图像处理和分析，支持AI识别功能',
     details: {
       title: '图像处理技术',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Image%20processing%20technology%2C%20drone%20aerial%20image%20analysis&sign=4a5b6c7d8e9f0i1j2k3l4m5n6o9p',
+      imageUrl: '/image/txcl.jpg',
       content: [
         '具备强大的实时图像处理和分析能力，支持多种图像处理算法',
         '实现了图像的增强、拼接、融合、识别等多种功能',
@@ -131,7 +134,7 @@ export const skillsData = [
     description: '5G+WiFi6双链路数据传输，低延迟高带宽',
     details: {
       title: '数据传输技术',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Data%20transmission%20technology%2C%205G%20WiFi6%20drone%20communication&sign=5a6b7c8d9e0f1i2j3k4l5m6n7o0p',
+      imageUrl: '/image/wlcs.jpg',
       content: [
         '采用5G+WiFi6双链路数据传输方案，实现了低延迟、高带宽的数据传输',
         '支持多种传输协议，包括TCP/IP、UDP、MQTT等',
@@ -149,7 +152,7 @@ export const skillsData = [
     description: '持有安徽省CAAC培训资质，多机型培训能力',
     details: {
       title: 'CAAC无人机培训',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=CAAC%20drone%20training%2C%20professional%20drone%20operator%20education&sign=6a7b8c9d0e1f2i3j4k5l6m7n8o1p',
+      imageUrl: '/image/caac.jpg',
       content: [
         '持有安徽省CAAC培训资质，提供多机型、多等级的无人机培训服务',
         '建立了完善的培训课程体系，包括理论教学、模拟训练和实操飞行',
@@ -168,7 +171,7 @@ export const skillsData = [
     description: '构建"空-天-地"一体化监测预警系统',
     details: {
       title: '空天地一体化技术',
-      imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Air%20space%20ground%20integration%20technology%2C%20drone%20satellite%20monitoring&sign=7a8b9c0d1e2f3i4j4k5l6m7n8o2p',
+      imageUrl: '/image/ktyt.jpg',
       content: [
         '构建了"空-天-地"一体化监测预警系统，实现了对目标区域的全方位监测',
         '整合了卫星遥感、无人机航拍、地面传感器等多种监测手段',
