@@ -36,8 +36,6 @@ const Quiz = () => {
   // 加载题目数据
   useEffect(() => {
     const loadQuestions = async () => {
-      console.log('开始加载题目数据');
-      console.log('当前级别:', currentLevel);
       setIsLoading(true);
       
       try {
@@ -47,42 +45,34 @@ const Quiz = () => {
           case '人社四级':
             // 四级：使用questions-level4.json
             selectedQuestions = await import('../data/questions-level4.json');
-            console.log('人社四级题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
           case '人社五级':
             // 五级：使用questions-level5.json
             selectedQuestions = await import('../data/questions-level5.json');
-            console.log('人社五级题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
           case 'CAAC机长':
             // CAAC机长：使用questions-caac.json
             selectedQuestions = await import('../data/questions-caac.json');
-            console.log('CAAC机长题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
           case '人社三级':
           default:
             // 三级：使用questions-level3.json
             selectedQuestions = await import('../data/questions-level3.json');
-            console.log('三级题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
         }
-        
-        console.log('选中的题库长度:', selectedQuestions.length);
         
         // 根据级别决定是否随机排序题目
         let processedQuestions;
         if (currentLevel === '人社三级') {
           // 三级题目：按照固定顺序展示
           processedQuestions = [...(selectedQuestions as Question[])];
-          console.log('人社三级题目按照固定顺序加载，数量:', processedQuestions.length);
         } else {
           // 其他级别：随机排序题目
           processedQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
-          console.log('打乱后的题目数量:', processedQuestions.length);
         }
         setQuestions(processedQuestions);
         // 重置状态

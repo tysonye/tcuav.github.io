@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetchSkillsFromIssues } from '../utils/githubApi'
+import { skillsData as mockSkillsData } from '../lib/mockData'
 
 interface Skill {
   name: string
@@ -19,16 +19,14 @@ const Skills = () => {
   const [skillsData, setSkillsData] = useState<Skill[]>([])
   const [isLoading, setIsLoading] = useState(true)
   
-  // 从GitHub Issues获取技能数据
+  // 使用本地mock数据
   useEffect(() => {
-    const loadSkills = async () => {
-      setIsLoading(true)
-      const skills = await fetchSkillsFromIssues()
-      setSkillsData(skills)
+    setIsLoading(true)
+    // 模拟加载延迟，展示加载状态
+    setTimeout(() => {
+      setSkillsData(mockSkillsData)
       setIsLoading(false)
-    }
-    
-    loadSkills()
+    }, 500)
   }, [])
   
   return (

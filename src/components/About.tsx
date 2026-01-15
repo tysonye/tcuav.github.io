@@ -105,10 +105,20 @@ const About = () => {
               <div className="flex items-center justify-between flex-row-reverse md:flex-row">
                 <div className="w-5/12 md:w-1/2 md:pr-12 text-right">
                   <h4 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">2025年</h4>
-                  <p className="text-gray-600 dark:text-gray-300">计划推出5G+AI智能无人机平台，拓展国际市场，目标营收突破1亿元</p>
+                  <p className="text-gray-600 dark:text-gray-300">成功推出5G+AI智能无人机平台，拓展东南亚市场，营收突破1.2亿元，获得国家级专精特新小巨人企业称号</p>
                 </div>
                 <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 dark:bg-blue-400 text-white font-bold">25</div>
                 <div className="w-5/12 md:w-1/2 md:pl-12 hidden md:block"></div>
+              </div>
+              
+              {/* 2026年 */}
+              <div className="flex items-center justify-between">
+                <div className="w-5/12 md:w-1/2 md:pr-12 hidden md:block"></div>
+                <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 dark:bg-blue-400 text-white font-bold">26</div>
+                <div className="w-5/12 md:w-1/2 md:pl-12">
+                  <h4 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">2026年</h4>
+                  <p className="text-gray-600 dark:text-gray-300">发布行业首款"无人机+元宇宙"融合平台，建立无人机数字孪生系统，与国内20+高校建立产学研合作基地，启动科创板上市筹备</p>
+                </div>
               </div>
             </div>
           </div>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /src/
+Disallow: /.*
+
+Sitemap: https://tcuav.github.io/sitemap.xml
