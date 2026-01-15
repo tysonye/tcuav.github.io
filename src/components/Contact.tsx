@@ -11,6 +11,7 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [showWechatQR, setShowWechatQR] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -183,17 +184,8 @@ const Contact = () => {
               <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">联系方式</h3>
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="mt-1 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-400">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="font-medium text-gray-800 dark:text-white">邮箱</h4>
-                    <p className="text-gray-600 dark:text-gray-300">contact@tcuav.com</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">sales@tcuav.com (销售咨询)</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">support@tcuav.com (技术支持)</p>
-                  </div>
+
+
                 </div>
                 <div className="flex items-start">
                   <div className="mt-1 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-400">
@@ -203,8 +195,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-medium text-gray-800 dark:text-white">电话</h4>
-                    <p className="text-gray-600 dark:text-gray-300">+86 551 1234 5678</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">+86 138 0013 8000 (技术支持)</p>
+                    <p className="text-gray-600 dark:text-gray-300">+86 133 9715 5725</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -216,8 +207,8 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-medium text-gray-800 dark:text-white">地址</h4>
-                    <p className="text-gray-600 dark:text-gray-300">安徽省合肥市高新区科学大道100号</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">创新产业园A座15层</p>
+                    <p className="text-gray-600 dark:text-gray-300">安徽省桐城市盛唐北路100号(通程无人机培训基地)</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">安徽省桐城市文昌街道和平路和平尚城6#209室(办公室)</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -228,8 +219,7 @@ const Contact = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-medium text-gray-800 dark:text-white">工作时间</h4>
-                    <p className="text-gray-600 dark:text-gray-300">周一至周五: 9:00 - 18:00</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">周六: 10:00 - 16:00 (预约)</p>
+                    <p className="text-gray-600 dark:text-gray-300">周一至周日: 8:00 - 18:00</p>
                   </div>
                 </div>
               </div>
@@ -238,22 +228,41 @@ const Contact = () => {
             <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg mt-8">
               <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">关注我们</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">关注我们的社交媒体，获取最新的无人机技术和行业动态</p>
+              <div className="relative">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {socialLinks.map((link, index) => (
-                  <a
+                  <div
                     key={index}
-                    href={link.url}
-                    className="w-full py-3 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 relative cursor-pointer"
+                    onMouseEnter={() => link.name === '微信' && setShowWechatQR(true)}
+                    onMouseLeave={() => link.name === '微信' && setShowWechatQR(false)}
                   >
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={link.icon} />
                     </svg>
                     {link.name}
-                  </a>
+                  </div>
                 ))}
               </div>
+              
+              {/* 微信二维码弹窗 */}
+              {showWechatQR && (
+                <div className="absolute -top-80 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-2xl z-50 border-2 border-blue-600">
+                  <img 
+                    src="/image/wechatservices.jpg" 
+                    alt="微信二维码" 
+                    className="w-48 h-48 object-contain"
+                  />
+                  <p className="text-center text-sm text-gray-600 dark:text-gray-300 mt-2">扫码关注微信服务号</p>
+                  {/* 指向按钮的箭头 */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-2">
+                    <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
             </div>
           </div>
         </div>

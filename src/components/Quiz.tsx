@@ -16,10 +16,10 @@ interface Question {
 
 const Quiz = () => {
   // 定义级别选项
-  const levels = ['三级', '四级', '五级'];
+  const levels = ['人社三级', '人社四级', '人社五级'];
   
   // 状态管理
-  const [currentLevel, setCurrentLevel] = useState('五级'); // 默认选择五级
+  const [currentLevel, setCurrentLevel] = useState('人社五级'); // 默认选择五级
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string[]>([]);
@@ -44,19 +44,19 @@ const Quiz = () => {
         // 根据当前级别动态导入题库
         let selectedQuestions;
         switch (currentLevel) {
-          case '四级':
+          case '人社四级':
             // 四级：使用questions-level4.json
             selectedQuestions = await import('../data/questions-level4.json');
-            console.log('四级题库长度:', selectedQuestions.default.length);
+            console.log('人社四级题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
-          case '五级':
+          case '人社五级':
             // 五级：使用questions-level5.json
             selectedQuestions = await import('../data/questions-level5.json');
-            console.log('五级题库长度:', selectedQuestions.default.length);
+            console.log('人社五级题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
-          case '三级':
+          case '人社三级':
           default:
             // 三级：使用questions-level3.json
             selectedQuestions = await import('../data/questions-level3.json');
@@ -69,10 +69,10 @@ const Quiz = () => {
         
         // 根据级别决定是否随机排序题目
         let processedQuestions;
-        if (currentLevel === '三级') {
+        if (currentLevel === '人社三级') {
           // 三级题目：按照固定顺序展示
           processedQuestions = [...(selectedQuestions as Question[])];
-          console.log('三级题目按照固定顺序加载，数量:', processedQuestions.length);
+          console.log('人社三级题目按照固定顺序加载，数量:', processedQuestions.length);
         } else {
           // 其他级别：随机排序题目
           processedQuestions = [...(selectedQuestions as Question[])].sort(() => Math.random() - 0.5);
@@ -344,9 +344,7 @@ const Quiz = () => {
             ))}
           </div>
           
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            共 {questions.length} 道题目，测试你的知识掌握程度
-          </p>
+
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">

@@ -15,7 +15,7 @@ const Hero = () => {
               专业无人机技术与解决方案提供商
             </p>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
-                我们专注于无人机技术研发、CAAC培训、系统集成和行业应用，拥有"无人机+卫星遥感"融合应用体系，为客户提供从设计到部署的全流程解决方案，助力各行业数字化转型与智能化升级。
+                我们专注于无人机技术研发、CAAC培训、系统集成和行业应用，拥有"无人机+AI"融合应用体系，为客户提供从设计到部署的全流程解决方案，助力各行业数字化转型与智能化升级。
               </p>
             
               <div className="grid grid-cols-2 gap-4 mb-8 text-left">
