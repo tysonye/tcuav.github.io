@@ -24,6 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleTheme }) => {
     { name: '技能', href: '#skills' },
     { name: '项目', href: '#projects' },
     { name: '新闻', href: '#news' },
+    { name: '学习', href: '#quiz' },
     { name: '联系', href: '#contact' }
   ]
 
