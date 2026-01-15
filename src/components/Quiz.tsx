@@ -16,7 +16,7 @@ interface Question {
 
 const Quiz = () => {
   // 定义级别选项
-  const levels = ['人社三级', '人社四级', '人社五级'];
+  const levels = ['人社三级', '人社四级', '人社五级', 'CAAC机长'];
   
   // 状态管理
   const [currentLevel, setCurrentLevel] = useState('人社五级'); // 默认选择五级
@@ -54,6 +54,12 @@ const Quiz = () => {
             // 五级：使用questions-level5.json
             selectedQuestions = await import('../data/questions-level5.json');
             console.log('人社五级题库长度:', selectedQuestions.default.length);
+            selectedQuestions = selectedQuestions.default;
+            break;
+          case 'CAAC机长':
+            // CAAC机长：使用questions-caac.json
+            selectedQuestions = await import('../data/questions-caac.json');
+            console.log('CAAC机长题库长度:', selectedQuestions.default.length);
             selectedQuestions = selectedQuestions.default;
             break;
           case '人社三级':
@@ -134,13 +140,21 @@ const Quiz = () => {
       const currentQuestion = questions[currentQuestionIndex];
       // 将选中答案数组转换为字符串（如 ['A', 'B'] → 'AB'）
       const selectedAnswerStr = selectedAnswer.sort().join('');
+      const isCorrect = selectedAnswerStr === currentQuestion.answer;
       
-      if (selectedAnswerStr === currentQuestion.answer) {
+      if (isCorrect) {
         setScore(prevScore => prevScore + 1);
+        
+        // 显示答案后自动跳转到下一题
+        setShowAnswer(true);
+        setTimeout(() => {
+          nextQuestion();
+        }, 1000); // 延迟1秒跳转，让用户看到正确答案
+        return;
       }
     }
     
-    // 最后显示答案
+    // 错误答案或已显示答案时，只显示答案不自动跳转
     setShowAnswer(true);
   };
 
