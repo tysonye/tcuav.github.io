@@ -158,7 +158,15 @@ const Skills = () => {
 
         {/* 技术详情模态框 */}
         {selectedSkill && (
-          <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div 
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            onClick={(e) => {
+              // 点击外部区域关闭模态框
+              if (e.target === e.currentTarget) {
+                setSelectedSkill(null);
+              }
+            }}
+          >
             <div className="bg-white dark:bg-gray-800 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
               <div className="p-8">
                 <button
