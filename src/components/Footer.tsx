@@ -74,12 +74,9 @@ const Footer = ({ onLegalClick }: { onLegalClick: () => void }) => {
               <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">隐私政策</a>
               <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">服务条款</a>
               <a 
-                href="#" 
+                href="javascript:void(0)" 
                 className="text-gray-500 hover:text-white transition-colors text-sm"
-                onClick={(e) => {
-                  e.preventDefault();
-                  onLegalClick();
-                }}
+                onClick={onLegalClick}
               >
                 法律声明
               </a>
