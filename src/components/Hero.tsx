@@ -1,8 +1,6 @@
-
-
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-4 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-blue-900/30">
+    <section className="min-h-screen relative flex flex-col items-center justify-center py-20 px-4 bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-blue-900/30">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-2/3 text-center md:text-left mb-10 md:mb-0">
@@ -77,9 +75,11 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        
-        {/* 滚动指示器 */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+      </div>
+      
+      {/* 滚动指示器 - 位于section底部中央 */}
+      <div className="absolute bottom-10 left-0 right-0 text-center">
+        <div className="flex flex-col items-center justify-center animate-bounce">
           <span className="text-sm text-gray-600 dark:text-gray-400 mb-2">向下滚动了解更多</span>
           <svg className="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
