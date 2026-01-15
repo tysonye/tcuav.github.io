@@ -22,8 +22,18 @@ const fetchIssuesByLabel = async (label: string) => {
 // 解析Issue正文中的JSON数据
 const parseIssueContent = (issue: any) => {
   try {
-    // 尝试解析Issue正文为JSON
-    return JSON.parse(issue.body)
+    // 只有当内容看起来是JSON格式时才尝试解析
+    if (issue.body && (issue.body.trim().startsWith('{') || issue.body.trim().startsWith('['))) {
+      return JSON.parse(issue.body)
+    }
+    // 如果不是JSON格式，直接返回基本信息
+    return {
+      title: issue.title,
+      content: issue.body,
+      id: issue.number,
+      date: new Date(issue.created_at).toISOString().split('T')[0],
+      imageUrl: issue.user.avatar_url
+    }
   } catch (error) {
     console.error('Failed to parse issue content:', error)
     // 如果解析失败，返回基本信息
