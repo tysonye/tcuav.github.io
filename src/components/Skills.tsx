@@ -7,6 +7,7 @@ interface Skill {
   description: string
   details: {
     title: string
+    imageUrl: string
     content: string[]
     applications: string[]
     advantages: string[]
@@ -171,6 +172,14 @@ const Skills = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">
                   {selectedSkill.details.title}
                 </h2>
+                
+                <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+                  <img 
+                    src={selectedSkill.details.imageUrl} 
+                    alt={selectedSkill.details.title} 
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
                 
                 <div className="text-gray-600 dark:text-gray-300 leading-relaxed space-y-6">
                   <div>
