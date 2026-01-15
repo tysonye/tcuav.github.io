@@ -29,10 +29,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-5 text-blue-400">服务领域</h3>
             <ul className="space-y-3">
-              <li><a href="#projects?category=power" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>工业巡检</a></li>
-              <li><a href="#projects?category=agriculture" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>农业植保</a></li>
+              <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>工业巡检</a></li>
+              <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>农业植保</a></li>
               <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>安防监控</a></li>
-              <li><a href="#projects?category=surveying" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>测绘航拍</a></li>
+              <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>测绘航拍</a></li>
               <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>物流配送</a></li>
               <li><a href="#projects" className="text-gray-400 hover:text-white transition-colors flex items-center"><svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>消防救援</a></li>
             </ul>
@@ -46,27 +46,19 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <div>
-                  <p className="text-gray-400">+86 551 1234 5678</p>
+                  <p className="text-gray-400">+86 133 9715 5725</p>
                   <p className="text-gray-500 text-sm">+86 138 0013 8000</p>
                 </div>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 mt-1 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <div>
-                  <p className="text-gray-400">contact@tcuav.com</p>
-                  <p className="text-gray-500 text-sm">sales@tcuav.com</p>
-                </div>
-              </li>
+
               <li className="flex items-start">
                 <svg className="w-5 h-5 mt-1 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <div>
-                  <p className="text-gray-400">安徽省合肥市高新区科学大道100号</p>
-                  <p className="text-gray-500 text-sm">创新产业园A座15层</p>
+                  <p className="text-gray-400">安徽省桐城市盛唐北路100号(通程无人机培训基地)</p>
+                  <p className="text-gray-500 text-sm">安徽省桐城市文昌街道和平路和平尚城6#209室(办公室)</p>
                 </div>
               </li>
             </ul>
