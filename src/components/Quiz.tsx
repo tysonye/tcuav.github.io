@@ -139,7 +139,7 @@ const Quiz = () => {
         setShowAnswer(true);
         setTimeout(() => {
           nextQuestion();
-        }, 1000); // 延迟1秒跳转，让用户看到正确答案
+        }, 300); // 延迟1秒跳转，让用户看到正确答案
         return;
       }
     }
