@@ -27,37 +27,29 @@ const About = () => {
           </p>
         </div>
 
-        <div className="space-y-12">
-          {aboutContent.map((item, index) => (
-            <div 
-              key={index}
-              className={`grid md:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? 'md:flex-row-reverse' : ''
-              }`}
-            >
-              <div className="relative group">
-                <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-blue-600 dark:border-blue-400 group-hover:scale-105 transition-transform duration-500"></div>
-                <div className="rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
-                  <img 
-                    src={
-                      index === 0 
-                        ? "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Professional%20drone%20development%20team%20working%20on%20advanced%20aerial%20technology%2C%20modern%20laboratory%2C%20innovative%20environment&sign=2cea00d74201af472d3f6f8be5724d9b"
-                        : index === 1
-                        ? "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Drone%20technology%20innovation%20mission%2C%20empowering%20industries%2C%20future%20aerial%20solutions&sign=3d5e7f9a1b2c3d4e5f6a7b8c9d0e1f2a"
-                        : "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Drone%20core%20advantages%2C%20CAAC%20training%20certification%2C%20AI%20recognition%20technology&sign=4e6f8a0b1c2d3e4f5a6b7c8d9e0f1a2b"
-                    } 
-                    alt={item.title}
-                    className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-              </div>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative group">
+            <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-blue-600 dark:border-blue-400 group-hover:scale-105 transition-transform duration-500"></div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-shadow duration-500">
+              <img 
+                src="https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Professional%20drone%20development%20team%20working%20on%20advanced%20aerial%20technology%2C%20modern%20laboratory%2C%20innovative%20environment&sign=2cea00d74201af472d3f6f8be5724d9b" 
+                alt="无人机研发团队" 
+                className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
+              />
+            </div>
+          </div>
 
-              <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="space-y-8">
+            {aboutContent.map((item, index) => (
+              <div 
+                key={index}
+                className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
                 <h3 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">{item.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: item.content }}></p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* 新增：公司发展历程 */}
