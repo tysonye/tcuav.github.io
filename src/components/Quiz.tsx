@@ -32,6 +32,10 @@ const Quiz = () => {
   const [showSearchResults, setShowSearchResults] = useState(false);
   // 跟踪用户已提交答案的题目数量
   const [submittedQuestions, setSubmittedQuestions] = useState(0);
+  // 存储所有题目的答案，键为题目索引，值为答案数组
+  const [allAnswers, setAllAnswers] = useState<Record<number, string[]>>({});
+  // 存储已提交的题目索引，避免重复计算
+  const [submittedQuestionIndexes, setSubmittedQuestionIndexes] = useState<Set<number>>(new Set());
 
   // 加载题目数据
   useEffect(() => {
@@ -77,9 +81,12 @@ const Quiz = () => {
         setQuestions(processedQuestions);
         // 重置状态
         setCurrentQuestionIndex(0);
+        setSelectedAnswer([]);
         setScore(0);
         setQuizCompleted(false);
         setSubmittedQuestions(0);
+        setAllAnswers({});
+        setSubmittedQuestionIndexes(new Set());
       } catch (error) {
         console.error('加载题目数据失败:', error);
         setQuestions([]);
@@ -92,11 +99,19 @@ const Quiz = () => {
     loadQuestions();
   }, [currentLevel]);
 
-  // 重置当前题目的选择
+  // 处理当前题目切换
   useEffect(() => {
-    setSelectedAnswer([]);
-    setShowAnswer(false);
-  }, [currentQuestionIndex]);
+    // 检查是否有已保存的答案
+    if (allAnswers[currentQuestionIndex]) {
+      setSelectedAnswer(allAnswers[currentQuestionIndex]);
+      // 检查该题目是否已经提交过
+      setShowAnswer(submittedQuestionIndexes.has(currentQuestionIndex));
+    } else {
+      // 没有已保存的答案，重置
+      setSelectedAnswer([]);
+      setShowAnswer(false);
+    }
+  }, [currentQuestionIndex, allAnswers, submittedQuestionIndexes]);
 
   // 处理选项选择
   const handleOptionSelect = (optionKey: string) => {
@@ -105,17 +120,30 @@ const Quiz = () => {
     if (currentQuestion.type === '多选题') {
       // 多选题：切换选项状态
       setSelectedAnswer(prev => {
+        let newSelectedAnswer;
         if (prev.includes(optionKey)) {
           // 如果已选中，移除
-          return prev.filter(key => key !== optionKey);
+          newSelectedAnswer = prev.filter(key => key !== optionKey);
         } else {
           // 如果未选中，添加
-          return [...prev, optionKey].sort(); // 排序保持一致性
+          newSelectedAnswer = [...prev, optionKey].sort(); // 排序保持一致性
         }
+        // 保存到所有答案记录中
+        setAllAnswers(prev => ({
+          ...prev,
+          [currentQuestionIndex]: newSelectedAnswer
+        }));
+        return newSelectedAnswer;
       });
     } else {
       // 单选题：替换选择
-      setSelectedAnswer([optionKey]);
+      const newSelectedAnswer = [optionKey];
+      setSelectedAnswer(newSelectedAnswer);
+      // 保存到所有答案记录中
+      setAllAnswers(prev => ({
+        ...prev,
+        [currentQuestionIndex]: newSelectedAnswer
+      }));
     }
   };
 
@@ -123,9 +151,22 @@ const Quiz = () => {
   const checkAnswer = () => {
     if (!selectedAnswer || selectedAnswer.length === 0) return;
 
+    // 保存当前答案
+    setAllAnswers(prev => ({
+      ...prev,
+      [currentQuestionIndex]: selectedAnswer
+    }));
+
     // 只在第一次提交当前题目答案时更新分数和已提交题目数量
-    if (!showAnswer) {
+    if (!showAnswer && !submittedQuestionIndexes.has(currentQuestionIndex)) {
       setSubmittedQuestions(prev => prev + 1);
+      
+      // 添加到已提交题目索引集合
+      setSubmittedQuestionIndexes(prev => {
+        const newSet = new Set(prev);
+        newSet.add(currentQuestionIndex);
+        return newSet;
+      });
       
       const currentQuestion = questions[currentQuestionIndex];
       // 将选中答案数组转换为字符串（如 ['A', 'B'] → 'AB'）
@@ -172,6 +213,8 @@ const Quiz = () => {
     setScore(0);
     setQuizCompleted(false);
     setSubmittedQuestions(0);
+    setAllAnswers({});
+    setSubmittedQuestionIndexes(new Set());
   };
 
   // 搜索题目
