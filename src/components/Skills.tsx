@@ -31,135 +31,144 @@ const Skills = () => {
   }, [])
   
   return (
-    <section id="skills" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
+    <section id="skills" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800/50 dark:to-gray-900/80">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block relative">
-            核心技术
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-blue-600 dark:bg-blue-400 w-24 rounded-full"></div>
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        {/* 标题部分 - 优化设计 */}
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-block relative mb-4">
+            <div className="absolute -top-6 -left-6 w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full blur-md"></div>
+            <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-purple-100 dark:bg-purple-900/30 rounded-full blur-md"></div>
+            <h2 className="text-3xl md:text-4xl font-bold relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
+              核心技术
+            </h2>
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 rounded-full mx-auto mb-6"></div>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
             我们掌握多项无人机核心技术，为各行业提供专业解决方案
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="h-80 md:h-96">
-            <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl flex items-center justify-center shadow-lg">
-              <svg width="80%" height="80%" viewBox="0 0 400 400" className="max-w-full h-auto">
-                <circle cx="200" cy="200" r="150" fill="none" stroke="#e2e8f0" strokeWidth="2" />
-                <circle cx="200" cy="200" r="100" fill="none" stroke="#e2e8f0" strokeWidth="2" />
-                <circle cx="200" cy="200" r="50" fill="none" stroke="#e2e8f0" strokeWidth="2" />
+        {/* 雷达图与技术指标 - 改进布局 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* 雷达图 - 优化设计 */}
+          <div className="h-80 md:h-96 relative group animate-slide-up">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-[1.02]"></div>
+            <div className="absolute inset-4 bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-md flex items-center justify-center">
+              <svg width="85%" height="85%" viewBox="0 0 400 400" className="max-w-full h-auto">
+                {/* 雷达图网格 */}
+                <circle cx="200" cy="200" r="150" fill="none" stroke="#e2e8f0" strokeWidth="2" className="opacity-70" />
+                <circle cx="200" cy="200" r="100" fill="none" stroke="#e2e8f0" strokeWidth="2" className="opacity-70" />
+                <circle cx="200" cy="200" r="50" fill="none" stroke="#e2e8f0" strokeWidth="2" className="opacity-70" />
                 
-                {/* 无人机设计 */}
-                <line x1="200" y1="50" x2="200" y2="30" stroke="#3b82f6" strokeWidth="3" />
-                <text x="200" y="20" textAnchor="middle" fill="#3b82f6" fontSize="14" fontWeight="bold">无人机设计</text>
+                {/* 轴线 */}
+                <line x1="200" y1="50" x2="200" y2="350" stroke="#e2e8f0" strokeWidth="1.5" className="opacity-50" />
+                <line x1="63.4" y1="100" x2="336.6" y2="300" stroke="#e2e8f0" strokeWidth="1.5" className="opacity-50" />
+                <line x1="63.4" y1="300" x2="336.6" y2="100" stroke="#e2e8f0" strokeWidth="1.5" className="opacity-50" />
                 
-                {/* 飞控系统 */}
-                <line x1="336.6" y1="100" x2="356.6" y2="90" stroke="#10b981" strokeWidth="3" />
-                <text x="370" y="85" textAnchor="middle" fill="#10b981" fontSize="14" fontWeight="bold">飞控系统</text>
+                {/* 技术领域标签 */}
+                <g className="text-sm font-semibold">
+                  <text x="200" y="40" textAnchor="middle" fill="#3b82f6" fontWeight="bold">无人机设计</text>
+                  <text x="370" y="110" textAnchor="middle" fill="#10b981" fontWeight="bold">飞控系统</text>
+                  <text x="370" y="310" textAnchor="middle" fill="#f59e0b" fontWeight="bold">自动驾驶</text>
+                  <text x="200" y="380" textAnchor="middle" fill="#8b5cf6" fontWeight="bold">传感器技术</text>
+                  <text x="30" y="310" textAnchor="middle" fill="#ec4899" fontWeight="bold">图像处理</text>
+                  <text x="30" y="110" textAnchor="middle" fill="#34d399" fontWeight="bold">数据传输</text>
+                </g>
                 
-                {/* 自动驾驶 */}
-                <line x1="336.6" y1="300" x2="356.6" y2="310" stroke="#f59e0b" strokeWidth="3" />
-                <text x="370" y="315" textAnchor="middle" fill="#f59e0b" fontSize="14" fontWeight="bold">自动驾驶</text>
-                
-                {/* 传感器技术 */}
-                <line x1="200" y1="350" x2="200" y2="370" stroke="#8b5cf6" strokeWidth="3" />
-                <text x="200" y="380" textAnchor="middle" fill="#8b5cf6" fontSize="14" fontWeight="bold">传感器技术</text>
-                
-                {/* 图像处理 */}
-                <line x1="63.4" y1="300" x2="43.4" y2="310" stroke="#ec4899" strokeWidth="3" />
-                <text x="30" y="315" textAnchor="middle" fill="#ec4899" fontSize="14" fontWeight="bold">图像处理</text>
-                
-                {/* 数据传输 */}
-                <line x1="63.4" y1="100" x2="43.4" y2="90" stroke="#34d399" strokeWidth="3" />
-                <text x="30" y="85" textAnchor="middle" fill="#34d399" fontSize="14" fontWeight="bold">数据传输</text>
-                
-                {/* 雷达图填充 */}
+                {/* 雷达图填充 - 优化渐变 */}
                 <polygon 
                   points="200,50 336.6,100 336.6,300 200,350 63.4,300 63.4,100" 
                   fill="url(#radarGradient)" 
-                  fillOpacity="0.4" 
+                  fillOpacity="0.5" 
                   stroke="#3b82f6" 
                   strokeWidth="2" 
+                  className="transition-all duration-1000 ease-out group-hover:fill-opacity-0.6"
                 />
                 <defs>
                   <linearGradient id="radarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.5 }} />
-                    <stop offset="100%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.3 }} />
+                    <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.6 }} />
+                    <stop offset="50%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.4 }} />
+                    <stop offset="100%" style={{ stopColor: '#ec4899', stopOpacity: 0.3 }} />
                   </linearGradient>
                 </defs>
+                
+                {/* 动态点 - 增强视觉效果 */}
+                {[
+                  { x: 200, y: 50, color: '#3b82f6' },
+                  { x: 336.6, y: 100, color: '#10b981' },
+                  { x: 336.6, y: 300, color: '#f59e0b' },
+                  { x: 200, y: 350, color: '#8b5cf6' },
+                  { x: 63.4, y: 300, color: '#ec4899' },
+                  { x: 63.4, y: 100, color: '#34d399' }
+                ].map((point, index) => (
+                  <circle 
+                    key={index} 
+                    cx={point.x} 
+                    cy={point.y} 
+                    r="6" 
+                    fill={point.color} 
+                    opacity="0.8"
+                    className="animate-pulse"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  />
+                ))}
               </svg>
             </div>
           </div>
 
-          {/* 加载状态 */}
-        {isLoading ? (
-          <div className="flex justify-center items-center py-20">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-              <p className="mt-4 text-gray-600 dark:text-gray-300">正在加载核心技术...</p>
+          {/* 技术指标 - 优化设计 */}
+          {isLoading ? (
+            <div className="flex justify-center items-center py-20 animate-pulse">
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 border-4 border-blue-200 border-t-transparent rounded-full animate-spin"></div>
+                <p className="mt-4 text-gray-600 dark:text-gray-300">正在加载核心技术...</p>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {skillsData.map((skill, index) => (
-              <div 
-                key={index} 
-                className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
-                onClick={() => setSelectedSkill(skill)}
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                    </svg>
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">{skill.name}</span>
+          ) : (
+            <div className="space-y-6 animate-slide-up animation-delay-300">
+              {skillsData.map((skill, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-x-2 overflow-hidden group cursor-pointer"
+                  onClick={() => setSelectedSkill(skill)}
+                >
+                  {/* 左侧装饰条 */}
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500"></div>
+                  
+                  <div className="p-5 ml-1">
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="flex items-center">
+                        <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
+                          <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{skill.name}</h3>
+                          <p className="text-sm text-gray-500 dark:text-gray-400">{skill.description}</p>
+                        </div>
+                      </div>
+                      <span className="text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">{skill.level}%</span>
+                    </div>
+                    
+                    {/* 进度条 - 优化设计 */}
+                    <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1500 ease-out group-hover:from-blue-600 group-hover:to-purple-600"
+                        style={{ width: `${skill.level}%` }}
+                      ></div>
+                    </div>
                   </div>
-                  <span className="text-sm font-medium text-blue-600 dark:text-blue-400">{skill.level}%</span>
                 </div>
-                <div className="h-2.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillsData.map((tech, index) => (
-            <div 
-              key={index}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg text-center flex flex-col items-center justify-center h-auto hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 cursor-pointer"
-              onClick={() => setSelectedSkill(tech)}
-            >
-              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">{tech.name}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{tech.description}</p>
-              <div className="mt-3">
-                <button className="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline">
-                  查看详情
-                  <svg className="w-3 h-3 inline ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
-        {/* 技术详情模态框 */}
+        {/* 技术详情模态框 - 优化设计 */}
         {selectedSkill && (
           <div 
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fade-in"
             onClick={(e) => {
               // 点击外部区域关闭模态框
               if (e.target === e.currentTarget) {
@@ -167,42 +176,64 @@ const Skills = () => {
               }
             }}
           >
-            <div className="bg-white dark:bg-gray-800 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-8">
-                <button
-                  onClick={() => setSelectedSkill(null)}
-                  className="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-700 transition-colors"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">
-                  {selectedSkill.details.title}
-                </h2>
-                
-                <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-slide-up">
+              <div className="relative">
+                {/* 模态框顶部图片 */}
+                <div className="h-60 bg-gradient-to-r from-blue-500 to-purple-500 relative overflow-hidden">
                   <img 
                     src={selectedSkill.details.imageUrl} 
                     alt={selectedSkill.details.title} 
-                    className="w-full h-64 object-cover"
+                    className="w-full h-full object-cover opacity-30"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                    <div className="p-8">
+                      <h2 className="text-3xl font-bold text-white">{selectedSkill.details.title}</h2>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="text-gray-600 dark:text-gray-300 leading-relaxed space-y-6">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">技术概述</h3>
+                {/* 关闭按钮 - 优化设计 */}
+                <button
+                  onClick={() => setSelectedSkill(null)}
+                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm flex items-center justify-center text-gray-800 dark:text-white shadow-lg hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-110"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              
+              <div className="p-8">
+                <div className="text-gray-600 dark:text-gray-300 leading-relaxed space-y-8">
+                  {/* 技术概述 */}
+                  <div className="animate-fade-in">
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white flex items-center">
+                      <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </span>
+                      技术概述
+                    </h3>
                     {selectedSkill.details.content.map((paragraph, index) => (
-                      <p key={index} className="mb-3">{paragraph}</p>
+                      <p key={index} className="mb-4 leading-relaxed">{paragraph}</p>
                     ))}
                   </div>
                   
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">应用领域</h3>
-                    <div className="grid grid-cols-2 gap-2">
+                  {/* 应用领域 */}
+                  <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white flex items-center">
+                      <span className="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                      </span>
+                      应用领域
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {selectedSkill.details.applications.map((app, index) => (
-                        <div key={index} className="flex items-center">
-                          <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div key={index} className="flex items-center bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
+                          <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span>{app}</span>
@@ -211,13 +242,21 @@ const Skills = () => {
                     </div>
                   </div>
                   
+                  {/* 培训课程（如果有） */}
                   {selectedSkill.details.courses && (
-                    <div>
-                      <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">培训课程</h3>
-                      <div className="grid grid-cols-2 gap-2">
+                    <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                      <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white flex items-center">
+                        <span className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-3">
+                          <svg className="w-4 h-4 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                          </svg>
+                        </span>
+                        培训课程
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {selectedSkill.details.courses.map((course, index) => (
-                          <div key={index} className="flex items-center">
-                            <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div key={index} className="flex items-center bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
+                            <svg className="w-5 h-5 text-purple-600 dark:text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                             </svg>
                             <span>{course}</span>
@@ -227,12 +266,20 @@ const Skills = () => {
                     </div>
                   )}
                   
-                  <div>
-                    <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">技术优势</h3>
-                    <div className="grid grid-cols-2 gap-2">
+                  {/* 技术优势 */}
+                  <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                    <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white flex items-center">
+                      <span className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </span>
+                      技术优势
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {selectedSkill.details.advantages.map((advantage, index) => (
-                        <div key={index} className="flex items-center">
-                          <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div key={index} className="flex items-center bg-gray-50 dark:bg-gray-700/50 p-3 rounded-lg">
+                          <svg className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                           </svg>
                           <span>{advantage}</span>
