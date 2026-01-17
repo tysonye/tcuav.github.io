@@ -6,7 +6,7 @@ const Clients = () => {
       title: "电力巡检无人机系统",
       industry: "电力行业",
       description: "为某电力公司提供的无人机巡检系统，实现了输电线路的自动化巡检，大幅提高了巡检效率，降低了人工成本和安全风险。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Drone%20inspecting%20power%20lines%20with%20high%20technology%2C%20professional%20aerial%20inspection%2C%20modern%20smart%20grid%20system&sign=7c3aed5a0b3f4c1d8e5a6b7c8d9e0f1a",
+      imageUrl: "/image/dlxj.jpg",
       results: [
         "巡检效率提升80%",
         "人工成本降低60%",
@@ -19,7 +19,7 @@ const Clients = () => {
       title: "农业植保无人机解决方案",
       industry: "农业领域",
       description: "为农业合作社提供的无人机植保解决方案，实现了精准喷洒、病虫害监测和作物生长分析，提高了农作物产量和质量。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Agricultural%20drone%20spraying%20crops%2C%20precision%20agriculture%20technology%2C%20green%20farmland%20with%20modern%20aerial%20application&sign=8d9e0f1a7c3aed5a0b3f4c1d8e5a6b7c",
+      imageUrl: "/image/nyzb.jpg",
       results: [
         "农药使用量减少30%",
         "作物产量提升15%",
@@ -32,7 +32,7 @@ const Clients = () => {
       title: "城市安防监控系统",
       industry: "安防领域",
       description: "为城市管理部门提供的无人机安防监控系统，实现了城市重点区域的实时监控、应急响应和事件处理，提升了城市管理水平。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=City%20security%20drone%20monitoring%20urban%20area%2C%20modern%20smart%20city%20with%20aerial%20surveillance%2C%20high-tech%20security%20system&sign=9e0f1a8d7c3aed5a0b3f4c1d8e5a6b7c",
+      imageUrl: "/image/csaf.jpg",
       results: [
         "应急响应时间缩短50%",
         "监控覆盖范围扩大3倍",
