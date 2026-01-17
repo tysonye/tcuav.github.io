@@ -145,11 +145,65 @@ const privacyPolicy = `隐私策略
 电话：+86 13397155725
 地址：安徽省桐城市文昌街道和平路和平尚城6#209室`;
 
+// 常见问题内容
+const faqContent = `常见问题 (FAQ)
+无人机基础操作
+Q: 无人机操作需要专业执照吗？
+A: 根据中国民航局规定，商用无人机操作需持有相应执照。我们提供专业培训课程，帮助用户通过相关考试，同时我们的无人机系统设计为操作简便，新手经2天培训即可上手操作。
+Q: 无人机的续航时间和作业半径是多少？
+A: 标准机型续航时间为35-45分钟，最大作业半径10公里。针对大型农田或广域巡检需求，我们提供多电池系统和快速充电解决方案，可实现连续作业8小时以上。
+Q: 无人机在雨天或大风天气能使用吗？
+A: 我们的无人机系统具备IP54防护等级，可在小雨和5级以下风力条件下正常工作。为确保安全和作业效果，我们建议在4级风力以上避免作业。
+行业应用
+Q: 无人机植保比传统方式效率提升多少？
+A: 无人机植保效率是人工的8-12倍，每小时可作业50-100亩，同时减少农药使用量20-30%，作业精度提高40%。我们已为陕西、河南等多地农业合作社实现显著增产增收。
+Q: 电力巡检中无人机如何识别故障？
+A: 我们的AI识别系统可自动检测绝缘子破损、线路断裂等故障，准确率高达95%。系统会生成详细报告，包括故障位置、类型和严重程度，帮助电力部门快速定位和处理问题。
+Q: 林业巡护中无人机能监测哪些内容？
+A: 无人机可监测森林火灾风险、病虫害情况、树木生长状况和非法砍伐行为。通过定期飞行，我们提供森林健康状况的长期监测数据，为林业管理提供科学依据。
+产品与服务
+Q: 如何选择适合我行业的无人机解决方案？
+A: 我们提供专业需求分析服务。只需填写简单问卷或联系销售顾问，我们将根据您的行业特点、作业规模和预算，推荐最适合的解决方案，并提供详细对比分析。
+Q: 产品保修期是多久？
+A: 我们提供1年整机保修服务，关键部件（如电机、电池）提供2年保修。保修期内，非人为损坏的故障我们将免费维修或更换。
+Q: 是否提供定制化服务？
+A: 是的，我们提供定制化解决方案，包括特殊功能开发、软件定制和硬件改装，以满足特定行业需求。我们的定制服务已成功应用于多个行业项目。`;
+
+// 技术支持内容
+const techSupportContent = `技术支持
+我们的技术支持服务
+7×24小时专业支持
+电话支持：199-5567-4323（工作日 9:00-18:00，节假日技术支持在线）
+
+技术支持流程
+提交问题：通过电话提交问题
+问题响应：30分钟内响应，紧急问题15分钟内响应
+问题处理：分配给相应领域的专家，提供解决方案
+问题解决：远程协助或安排现场支持
+效果反馈：问题解决后进行满意度调查
+
+培训与学习
+基础操作培训：新用户可免费参加2天系统培训
+进阶技能课程：每月定期举办行业应用进阶培训
+认证考试：通过考核可获得认证证书
+
+技术支持承诺
+一般问题：2小时内响应
+紧急问题：30分钟内响应
+现场支持：全国主要城市48小时内到达
+
+通程智能科技有限公司
+地址：安徽省桐城市盛唐北路100号
+电话：+86 19955674323
+官网：https://uav.xibai.xin/`;
+
 function App() {
   const { isDarkMode, toggleTheme } = useTheme();
   const [showLegalModal, setShowLegalModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showFAQModal, setShowFAQModal] = useState(false);
+  const [showTechSupportModal, setShowTechSupportModal] = useState(false);
   
   useEffect(() => {
     // 初始化平滑滚动
@@ -173,6 +227,8 @@ function App() {
         onLegalClick={() => setShowLegalModal(true)}
         onTermsClick={() => setShowTermsModal(true)}
         onPrivacyClick={() => setShowPrivacyModal(true)}
+        onFAQClick={() => setShowFAQModal(true)}
+        onTechSupportClick={() => setShowTechSupportModal(true)}
       />
       
       {/* 法律声明模态框 */}
@@ -256,6 +312,64 @@ function App() {
               <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">隐私策略</h2>
               <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
                 {privacyPolicy}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* 常见问题模态框 */}
+      {showFAQModal && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowFAQModal(false);
+            }
+          }}
+        >
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
+              <button
+                onClick={() => setShowFAQModal(false)}
+                className="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">常见问题</h2>
+              <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                {faqContent}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {/* 技术支持模态框 */}
+      {showTechSupportModal && (
+        <div 
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowTechSupportModal(false);
+            }
+          }}
+        >
+          <div className="bg-white dark:bg-gray-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
+              <button
+                onClick={() => setShowTechSupportModal(false)}
+                className="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full text-gray-800 dark:text-white hover:bg-white dark:hover:bg-gray-700 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-800 dark:text-white">技术支持</h2>
+              <div className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                {techSupportContent}
               </div>
             </div>
           </div>

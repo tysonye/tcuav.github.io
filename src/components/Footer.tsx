@@ -1,4 +1,4 @@
-const Footer = ({ onLegalClick, onTermsClick, onPrivacyClick }: { onLegalClick: () => void; onTermsClick: () => void; onPrivacyClick: () => void }) => {
+const Footer = ({ onLegalClick, onTermsClick, onPrivacyClick, onFAQClick, onTechSupportClick }: { onLegalClick: () => void; onTermsClick: () => void; onPrivacyClick: () => void; onFAQClick: () => void; onTechSupportClick: () => void }) => {
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white pt-16 pb-8 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -86,8 +86,22 @@ const Footer = ({ onLegalClick, onTermsClick, onPrivacyClick }: { onLegalClick: 
                   法律声明
                 </button>
               </li>
-              <li className="text-center"><a href="#" className="text-gray-400 hover:text-white transition-all duration-300">常见问题</a></li>
-              <li className="text-center"><a href="#contact" className="text-gray-400 hover:text-white transition-all duration-300">技术支持</a></li>
+              <li className="text-center">
+                <button 
+                  className="text-gray-400 hover:text-white transition-all duration-300 bg-transparent border-none cursor-pointer w-full"
+                  onClick={onFAQClick}
+                >
+                  常见问题
+                </button>
+              </li>
+              <li className="text-center">
+                <button 
+                  className="text-gray-400 hover:text-white transition-all duration-300 bg-transparent border-none cursor-pointer w-full"
+                  onClick={onTechSupportClick}
+                >
+                  技术支持
+                </button>
+              </li>
             </ul>
           </div>
         </div>
