@@ -248,7 +248,7 @@ const Contact = () => {
                   <div className="flex flex-col items-center">
                     <div className="bg-white dark:bg-gray-800 p-2 rounded-lg shadow-md">
                       <img 
-                        src="/image/xhs.jpg" 
+                        src="/image/ks.jpg" 
                         alt="快手二维码" 
                         className="w-48 h-48 object-contain"
                       />
