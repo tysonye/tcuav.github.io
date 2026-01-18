@@ -5,19 +5,21 @@
 ## 🌟 项目特点
 
 ### 核心功能
-- ✅ **在线刷题系统**：包含500道无人机相关题目，支持随机排序、搜索和答案解析
-- ✅ **动态内容管理**：通过GitHub Issues管理技能、项目和新闻内容
+- ✅ **动态内容管理**：通过GitHub Issues管理项目和新闻内容
 - ✅ **响应式设计**：适配各种屏幕尺寸，提供良好的移动端体验
 - ✅ **深色模式支持**：自动根据系统设置切换，也可手动切换
 - ✅ **平滑滚动**：优化页面导航体验
 - ✅ **现代化UI**：采用Tailwind CSS构建的美观界面
+- ✅ **社交媒体集成**：支持微信、抖音、小红书、快手等社交媒体平台，带有二维码弹窗
+- ✅ **SEO优化**：自动更新sitemap.xml，提升搜索引擎排名
+- ✅ **自动部署**：GitHub Actions自动化部署流程
 
 ### 技术亮点
 - 🔧 基于React 18 + TypeScript开发
 - 🎨 使用Tailwind CSS实现响应式设计
 - 🏗️ Vite构建工具，快速的开发体验
 - 🚀 GitHub Actions自动化部署
-- 📱 支持PWA（渐进式Web应用）
+- 📱 优化的移动端体验
 - 🔒 安全的代码实践
 
 ## 🛠️ 技术栈
@@ -54,7 +56,7 @@ npm run dev
 npm run build
 ```
 
-构建产物将生成在 `dist` 目录
+构建产物将生成在 `dist` 目录，同时自动更新sitemap.xml的lastmod日期
 
 ### 预览构建结果
 ```bash
@@ -71,8 +73,9 @@ npm run deploy
 ### 自动化部署
 本项目已配置GitHub Actions自动部署流程：
 1. 当代码推送到 `main` 分支时，自动触发构建
-2. 构建成功后，自动部署到GitHub Pages
-3. 部署结果可在Actions页面查看
+2. 构建前自动更新sitemap.xml的lastmod日期
+3. 构建成功后，自动部署到GitHub Pages
+4. 部署结果可在Actions页面查看
 
 ### 手动部署
 使用以下命令手动部署：
@@ -86,16 +89,20 @@ npm run deploy
 ├── src/
 │   ├── components/        # React组件
 │   │   ├── About.tsx      # 关于我们
+│   │   ├── Clients.tsx    # 客户案例
 │   │   ├── Contact.tsx    # 联系我们
 │   │   ├── Footer.tsx     # 页脚
 │   │   ├── Hero.tsx       # 首页英雄区
 │   │   ├── Navbar.tsx     # 导航栏
 │   │   ├── News.tsx       # 新闻动态
 │   │   ├── Projects.tsx   # 无人机方案
-│   │   ├── Quiz.tsx       # 在线刷题
+│   │   ├── Quiz.tsx       # 在线测试
 │   │   └── Skills.tsx     # 核心技术
 │   ├── data/              # 数据文件
-│   │   └── questions.json # 题库数据
+│   │   ├── questions-caac.json     # 民航局题库
+│   │   ├── questions-level3.json   # 三级题库
+│   │   ├── questions-level4.json   # 四级题库
+│   │   └── questions-level5.json   # 五级题库
 │   ├── hooks/             # 自定义钩子
 │   │   └── useTheme.ts    # 主题切换钩子
 │   ├── lib/               # 工具库
@@ -109,42 +116,25 @@ npm run deploy
 │   └── vite-env.d.ts      # Vite环境类型定义
 ├── .github/workflows/     # GitHub Actions工作流
 │   └── deploy.yml         # 部署配置
+├── public/                # 静态资源
+│   ├── image/             # 图片资源
+│   └── favicon.ico        # 网站图标
 ├── dist/                  # 构建产物
 ├── index.html             # HTML模板
 ├── package.json           # 项目配置
+├── sitemap.xml            # 网站地图
+├── update-sitemap.js      # 自动更新sitemap脚本
 ├── tailwind.config.js     # Tailwind CSS配置
 ├── tsconfig.json          # TypeScript配置
 └── vite.config.ts         # Vite配置
 ```
 
-## 📝 在线刷题功能
-
-### 功能介绍
-- **500道题目**：涵盖无人机理论、法规、技术等多个方面
-- **随机排序**：每次刷新页面自动打乱题目顺序
-- **实时搜索**：支持按题目内容搜索，快速定位题目
-- **答案解析**：提供详细的答案解析，帮助理解知识点
-- **进度追踪**：显示当前进度和得分情况
-- **多种题型**：包括选择题、判断题等
-
-### 使用说明
-1. 访问网站首页，点击"在线刷题"导航项
-2. 在搜索框中输入关键词可搜索题目
-3. 选择答案后点击"检查答案"查看结果
-4. 点击"下一题"或"上一题"切换题目
-5. 完成所有题目后查看最终成绩
-
 ## 🔄 内容管理
 
 项目支持通过GitHub Issues管理以下内容：
 
-### 技能（Skills）
-- 标签：`skill`
-- 格式：JSON格式，包含技能名称、级别、描述和详细信息
-
 ### 项目（Projects）
 - 标签：`project`
-
 - 格式：JSON格式，包含项目名称、描述、技术栈和详细信息
 - 支持多种分类：水域管理、林业巡护、农业植保等
 
@@ -152,6 +142,25 @@ npm run deploy
 - 标签：`news`
 - 格式：JSON格式，包含新闻标题、内容、日期和详细信息
 - 支持多种分类：公司动态、行业资讯、技术前沿等
+
+## 📱 社交媒体集成
+
+网站集成了多种社交媒体平台，包括：
+- 微信
+- 抖音
+- 小红书
+- 快手
+
+每个社交媒体按钮都带有二维码弹窗功能，方便用户快速关注。
+
+## 🔍 SEO优化
+
+项目包含以下SEO优化功能：
+- 自动生成和更新sitemap.xml
+- 响应式设计，适配移动设备
+- 语义化HTML结构
+- 优化的页面加载速度
+- 清晰的导航结构
 
 ## 🤝 贡献指南
 
@@ -169,7 +178,8 @@ npm run deploy
 
 - 网站：[https://tcuav.github.io](https://tcuav.github.io)
 - GitHub：[https://github.com/tysonye/tcuav.github.io](https://github.com/tysonye/tcuav.github.io)
-- 邮箱：contact@tcuav.com
+- 电话：+86 13397155725
+- 地址：安徽省桐城市文昌街道和平路和平尚城6#209室
 
 ## 📊 项目状态
 
