@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "update-sitemap": "node update-sitemap.js",
-    "build": "npm run update-sitemap && vite build && (cp CNAME dist/CNAME 2>/dev/null || copy CNAME dist\\CNAME 2>NUL) && (cp sitemap.xml dist/sitemap.xml 2>/dev/null || copy sitemap.xml dist\\sitemap.xml 2>NUL)",
+    "build": "npm run update-sitemap && vite build && (cp CNAME dist/CNAME 2>/dev/null || copy CNAME dist\CNAME 2>NUL) && (cp sitemap.xml dist/sitemap.xml 2>/dev/null || copy sitemap.xml dist\sitemap.xml 2>NUL) && (cp robots.txt dist/robots.txt 2>/dev/null || copy robots.txt dist\robots.txt 2>NUL)",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "./node_modules/.bin/gh-pages.cmd -d dist --dotfiles --branch gh-pages --message \"Deploy React app to GitHub Pages\"",
