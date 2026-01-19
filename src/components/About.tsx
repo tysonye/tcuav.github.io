@@ -154,8 +154,8 @@ const About = () => {
               <div className="relative flex items-center justify-between flex-row-reverse md:flex-row">
                 <div className="w-full md:w-1/2 md:pr-20 text-right">
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2021年</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">公司成立，专注于无人机技术研发，核心团队组建完成</p>
+                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2021年：梦想启航</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">在桐城市保安服务有限公司的战略规划下，我们成立了低空事业部，正式开启无人机技术在安防领域的应用探索。这一年，我们组建了由航空专家、软件工程师和安防专业人士组成的核心团队，完成了首批无人机系统的技术验证和实地测试。通过与当地公安部门合作，我们成功实施了首个城市安防无人机巡逻项目，为后续发展奠定了坚实基础。同时，我们前瞻性地布局"无人机+AI"技术融合路径，为空天地一体化服务能力的构建埋下伏笔。</p>
                   </div>
                 </div>
                 
@@ -178,8 +178,8 @@ const About = () => {
                 
                 <div className="w-full md:w-1/2 md:pl-20">
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2022年</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">推出首款自主研发的工业巡检无人机，获得3项发明专利</p>
+                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2022年：技术突破</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">面对日益复杂的安防需求，我们投入大量资源进行技术研发，成功开发出具备夜视、热成像和智能识别功能的无人机系统。这一年，我们的服务范围从城市安防扩展至森林防火、水域巡检等领域，并与多家政府部门建立了长期合作关系。通过持续的技术迭代，我们在无人机续航能力、抗风性能和数据处理速度方面取得显著突破。特别值得一提的是，我们针对水域场景的AI智能识别算法初步成型，为后续钓鱼行为精准识别奠定技术基础。</p>
                   </div>
                 </div>
               </div>
@@ -188,8 +188,8 @@ const About = () => {
               <div className="relative flex items-center justify-between flex-row-reverse md:flex-row">
                 <div className="w-full md:w-1/2 md:pr-20 text-right">
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2023年</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">获得国家级高新技术企业认定，业务拓展至全国15个省市</p>
+                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2023年：市场拓展与资质建设</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">随着技术的成熟和市场认可度的提升，我们的业务版图迅速扩大。这一年，我们成功将无人机解决方案应用于农业植保、电力巡检和应急救援等多个领域，服务范围覆盖安徽、河南、江苏等多个省份。我们建立了完善的培训体系，成功获得安徽省CAAC培训资质，开始系统化培养专业的无人机操作员和维护工程师，为客户提供全方位的技术支持。同时，我们开始布局知识产权，申请了多项无人机控制系统和数据分析算法的专利。</p>
                   </div>
                 </div>
                 
@@ -212,8 +212,8 @@ const About = () => {
                 
                 <div className="w-full md:w-1/2 md:pl-20">
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2024年</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">建立完整的无人机解决方案体系，服务客户超过100家，营收突破5000万元</p>
+                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2024年：体系化升级</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">在积累了丰富的行业经验和客户资源后，我们制定了更加宏大的发展战略。这一年，我们加大研发投入，成立了专门的AI算法团队，致力于提升无人机的自主决策能力和数据处理效率。我们与多所高校和科研机构建立合作关系，共建无人机技术创新实验室。同时，我们构建了完整的无人机解决方案体系，服务客户突破100家，营收达到5000万元，为后续的高速发展打下坚实基础。</p>
                   </div>
                 </div>
               </div>
@@ -222,8 +222,8 @@ const About = () => {
               <div className="relative flex items-center justify-between flex-row-reverse md:flex-row">
                 <div className="w-full md:w-1/2 md:pr-20 text-right">
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2025年</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">成功推出5G+AI智能无人机平台，拓展东南亚市场，营收突破1.2亿元，获得国家级专精特新小巨人企业称号</p>
+                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2025年：扬帆起航与荣耀加冕</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">经过四年的技术积累和市场验证，我们迎来了重要里程碑——正式成立安徽通程智能科技有限公司，并获得"国家级专精特新小巨人企业"称号。新公司承载着我们在低空经济领域的远大愿景，以"科技守护安全，智能服务社会"为使命，致力于成为国内领先的无人机智能解决方案提供商。这一年，我们成功推出5G+AI智能无人机平台，拓展东南亚市场，营收突破1.2亿元。我们拥有完整的研发、生产、销售和服务体系，建立了覆盖全国的服务网络，真正实现了"空天地一体化"服务能力的落地。</p>
                   </div>
                 </div>
                 
@@ -246,8 +246,10 @@ const About = () => {
                 
                 <div className="w-full md:w-1/2 md:pl-20">
                   <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
-                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2026年</h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">发布行业首款"无人机+元宇宙"融合平台，建立无人机数字孪生系统，与国内20+高校建立产学研合作基地，启动科创板上市筹备</p>
+                    <h4 className="text-2xl font-bold mb-3 text-blue-600 dark:text-blue-400">2026年：创新引领</h4>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">站在"十五五"规划开局之年的历史节点，安徽通程智能科技有限公司迎来了全面发展的新阶段。这一年，我们积极响应国家低空经济发展战略，申报成为安徽省重点科技创新企业。我们发布了行业首款"无人机+元宇宙"融合平台，建立了无人机数字孪生系统，与国内20+高校建立产学研合作基地，并启动科创板上市筹备工作。
+在技术层面，我们的"天眼"智能巡检系统完成3.0版本升级，融合最新的AI大模型技术，实现了对复杂场景的自主识别和决策能力，准确率提升至98.5%。水域场景AI智能识别算法进一步优化，对钓鱼竿、钓鱼人姿态的识别准确率达到90%以上，成为行业标杆。
+在市场拓展方面，我们与国家电网、中粮集团等央企建立战略合作关系，承接了多个省级重大无人机应用示范项目。我们的农业植保服务覆盖面积突破500万亩，帮助农户增产增收的同时，减少农药使用量30%，为国家绿色农业发展贡献力量。在技术创新上，我们成功研发出国内首款全自主垂直起降固定翼无人机，续航时间达到4小时，作业半径扩展至200公里，填补了国内该领域的技术空白。</p>
                   </div>
                 </div>
               </div>
