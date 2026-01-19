@@ -5,4 +5,4 @@ Disallow: /dist/
 Disallow: /src/
 Disallow: /.*
 
-Sitemap: https://tcuav.github.io/sitemap.xml
+Sitemap: https://uav.xibai.xin/sitemap.xml
