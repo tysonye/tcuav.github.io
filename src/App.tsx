@@ -211,8 +211,8 @@ function App() {
   }, []);
   
   return (
-    <div className={`flex flex-col min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} transition-colors duration-300`}>
-      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+    <div className="flex flex-col min-h-screen bg-gray-900 text-white">
+      <Navbar />
       <main className="flex-grow">
         <Hero />
         <About />
