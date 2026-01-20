@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import { useRef, useEffect } from 'react'
+// 导入Swiper必要的CSS样式
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -9,7 +10,6 @@ import 'swiper/css/effect-coverflow'
 const Clients = () => {
   // Refs for scroll animations
   const titleRef = useRef<HTMLDivElement>(null)
-  const caseCardsRef = useRef<HTMLDivElement>(null)
   const partnersRef = useRef<HTMLDivElement>(null)
   const partnerCardsRef = useRef<HTMLDivElement>(null)
   // 客户案例数据
@@ -101,14 +101,7 @@ const Clients = () => {
       observer.observe(titleRef.current);
     }
 
-    // Observe case cards with staggered animation
-    if (caseCardsRef.current) {
-      const cards = caseCardsRef.current.querySelectorAll('div');
-      cards.forEach((card, index) => {
-        card.classList.add(`animation-delay-${index * 100}`);
-        observer.observe(card);
-      });
-    }
+
 
     // Observe partners section
     if (partnersRef.current) {
@@ -161,7 +154,7 @@ const Clients = () => {
             speed={1000}
             loop
             slidesPerView={1}
-            className="h-[600px] md:h-[700px]"
+            className="h-[500px] md:h-[600px] max-h-[80vh]"
           >
             {caseStudies.map((caseStudy) => (
               <SwiperSlide key={caseStudy.id} className="relative">
@@ -218,44 +211,7 @@ const Clients = () => {
           </Swiper>
         </div>
         
-        {/* 客户案例卡片 - 作为轮播图的补充 */}
-        <div ref={caseCardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-          {caseStudies.map((caseStudy) => (
-            <div 
-              key={caseStudy.id}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 overflow-hidden group cursor-pointer opacity-0 transform translate-y-8 transition-all duration-700 ease-out"
-            >
-              {/* 案例图片 */}
-              <div className="h-32 overflow-hidden relative">
-                <img 
-                  src={caseStudy.imageUrl} 
-                  alt={caseStudy.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 text-white">
-                    <p className="text-sm font-medium">查看案例</p>
-                  </div>
-                </div>
-                
-                {/* 行业标签 */}
-                <span className="absolute top-3 left-3 px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
-                  {caseStudy.industry}
-                </span>
-              </div>
-              
-              {/* 案例内容 */}
-              <div className="p-4">
-                <h3 className="text-lg font-bold mb-2 text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {caseStudy.title}
-                </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-                  {caseStudy.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+
 
         {/* 合作伙伴部分 */}
         <div ref={partnersRef} className="opacity-0 transform translate-y-8 transition-all duration-700 ease-out">

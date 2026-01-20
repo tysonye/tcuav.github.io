@@ -1,41 +1,10 @@
+import HeroBackground from './HeroBackground';
+
 const Hero = () => {
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-center py-20 px-4 overflow-hidden">
-      {/* 动态背景 - 增强版 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 transition-all duration-2000"></div>
-      
-      {/* 增强的背景装饰元素 */}
-      <div className="absolute inset-0 overflow-hidden opacity-15 dark:opacity-25">
-        {/* 流动的渐变光效 */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 blur-3xl animate-pulse-slow"></div>
-        <div className="absolute top-1/3 -right-40 w-80 h-80 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 blur-3xl animate-pulse-slow animation-delay-1500"></div>
-        <div className="absolute bottom-20 left-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 blur-3xl animate-pulse-slow animation-delay-3000"></div>
-        
-        {/* 网格线效果 */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(100,116,139,0.1)_1px,transparent_1px)] bg-[size:2rem_2rem] dark:bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.1)_1px,transparent_1px)]"></div>
-      </div>
-      
-      {/* 粒子效果装饰 */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* 浮动的无人机粒子 */}
-        {Array.from({ length: 20 }).map((_, index) => (
-          <div 
-            key={index}
-            className="absolute w-1 h-1 rounded-full bg-blue-400 dark:bg-blue-500 animate-particle"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 3}s`
-            }}
-          ></div>
-        ))}
-        
-        {/* 几何装饰 */}
-        <div className="absolute top-1/4 left-1/4 w-12 h-12 border-2 border-blue-300 dark:border-blue-600 rounded-full animate-float"></div>
-        <div className="absolute top-1/3 right-1/3 w-8 h-8 border-2 border-indigo-300 dark:border-indigo-600 rounded animate-float animation-delay-1000"></div>
-        <div className="absolute bottom-1/3 left-1/3 w-10 h-10 border-2 border-purple-300 dark:border-purple-600 rounded-full animate-float animation-delay-2000"></div>
-      </div>
+      {/* 视频背景 */}
+      <HeroBackground />
       
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row items-center">

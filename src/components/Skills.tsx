@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { skillsData as mockSkillsData } from '../lib/mockData'
 
 interface Skill {
@@ -20,7 +20,7 @@ const Skills = () => {
   const [skillsData, setSkillsData] = useState<Skill[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [counts, setCounts] = useState<Record<string, number>>({})
-  const skillsRef = useState<HTMLDivElement>(null)[0]
+  const skillsRef = useRef<HTMLDivElement>(null)
   
   // 使用本地mock数据
   useEffect(() => {
@@ -71,13 +71,13 @@ const Skills = () => {
       { threshold: 0.2 }
     )
     
-    if (skillsRef) {
-      observer.observe(skillsRef)
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current)
     }
     
     return () => {
-      if (skillsRef) {
-        observer.unobserve(skillsRef)
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current)
       }
     }
   }, [skillsData, skillsRef])

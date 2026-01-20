@@ -56,7 +56,27 @@ const News = () => {
     const loadNews = async () => {
       setIsLoading(true)
       const news = await fetchNewsFromIssues()
-      setNewsData(news)
+      // 如果获取失败或没有数据，使用默认数据
+      if (news.length === 0) {
+        setNewsData([
+          {
+            id: 1,
+            title: "通程智能科技成立五周年",
+            content: "安徽通程智能科技有限公司成立五周年，公司取得了显著的发展成就。",
+            date: "2026-01-20",
+            imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape&prompt=Drone%20technology%20company%20anniversary%20celebration%2C%20modern%20office%20setting&sign=5a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d",
+            category: "公司动态",
+            details: {
+              fullContent: ["安徽通程智能科技有限公司成立五周年，公司取得了显著的发展成就。五年来，公司专注于无人机技术研发与行业应用，已成为国内领先的无人机解决方案提供商。"],
+              tags: ["周年庆典", "公司动态"],
+              author: "通程智能",
+              source: "公司新闻"
+            }
+          }
+        ])
+      } else {
+        setNewsData(news)
+      }
       setIsLoading(false)
     }
     

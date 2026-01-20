@@ -3,6 +3,7 @@ import { fetchProjectsFromIssues } from '../utils/githubApi'
 import { projectCategories } from '../lib/mockData'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+// 导入Swiper必要的CSS样式
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -168,7 +169,7 @@ const Projects = () => {
                 speed={1000}
                 loop
                 slidesPerView={1}
-                className="h-[500px] md:h-[600px]"
+                className="h-[500px] md:h-[600px] max-h-[80vh]"
               >
                 {filteredProjects.map((project) => (
                   <SwiperSlide key={project.id} className="relative">
