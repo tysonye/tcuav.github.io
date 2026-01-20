@@ -390,8 +390,6 @@ const Quiz = () => {
               </button>
             ))}
           </div>
-          
-
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
@@ -405,8 +403,23 @@ const Quiz = () => {
                   placeholder="搜索题目..."
                   value={searchTerm}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+                  className="w-full pl-4 pr-10 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
                 />
+                {/* 清除按钮 */}
+                {searchTerm && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      handleSearch('');
+                    }}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors focus:outline-none"
+                    aria-label="清除搜索"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
                 {/* 搜索结果 */}
                 {showSearchResults && searchResults.length > 0 && (
                   <div className="absolute left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg z-10 max-h-60 overflow-y-auto">
@@ -473,24 +486,34 @@ const Quiz = () => {
                     </svg>
                   </button>
                 </div>
-                <div className="flex flex-wrap items-center space-x-4 sm:space-x-4 gap-y-1">
+                <div className="flex flex-wrap items-center space-x-4 sm:space-x-6 gap-y-1">
                   <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
-                    正确率：{calculateAccuracy()}%
+                    <span className="font-medium">正确率：</span>{calculateAccuracy()}%
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
-                    类型：{currentQuestion.type}
+                    <span className="font-medium">已答：</span>{submittedQuestions}/{questions.length}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
+                    <span className="font-medium">类型：</span>{currentQuestion.type}
                   </div>
                 </div>
               </div>
               
-              {/* 进度条 */}
-              <div>
-                <div className="h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+              {/* 题目进度条 */}
+              <div className="space-y-2">
+                {/* 总进度（当前题目位置） */}
+                <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
+                  <span>题目进度</span>
+                  <span>{currentQuestionIndex + 1}/{questions.length} ({Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}%)</span>
+                </div>
+                <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-blue-600 dark:bg-blue-400 rounded-full transition-all duration-300"
+                    className="h-full bg-blue-600 dark:bg-blue-400 rounded-full transition-all duration-500"
                     style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
                   ></div>
                 </div>
+                
+
               </div>
             </div>
           </div>

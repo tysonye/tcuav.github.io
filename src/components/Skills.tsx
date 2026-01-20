@@ -19,6 +19,8 @@ const Skills = () => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
   const [skillsData, setSkillsData] = useState<Skill[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [counts, setCounts] = useState<Record<string, number>>({})
+  const skillsRef = useState<HTMLDivElement>(null)[0]
   
   // 使用本地mock数据
   useEffect(() => {
@@ -26,15 +28,92 @@ const Skills = () => {
     // 模拟加载延迟，展示加载状态
     setTimeout(() => {
       setSkillsData(mockSkillsData)
+      // 初始化计数为0
+      const initialCounts: Record<string, number> = {}
+      mockSkillsData.forEach(skill => {
+        initialCounts[skill.name] = 0
+      })
+      setCounts(initialCounts)
       setIsLoading(false)
     }, 500)
   }, [])
+  
+  // 数字计数动画效果
+  useEffect(() => {
+    if (skillsData.length === 0) return
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 触发计数动画
+            skillsData.forEach(skill => {
+              let start = 0
+              const end = skill.level
+              const duration = 2000 // 动画持续时间
+              const increment = end / (duration / 16) // 每16ms增加一次
+              
+              const timer = setInterval(() => {
+                start += increment
+                if (start >= end) {
+                  setCounts(prev => ({ ...prev, [skill.name]: end }))
+                  clearInterval(timer)
+                } else {
+                  setCounts(prev => ({ ...prev, [skill.name]: Math.floor(start) }))
+                }
+              }, 16)
+            })
+            
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+    
+    if (skillsRef) {
+      observer.observe(skillsRef)
+    }
+    
+    return () => {
+      if (skillsRef) {
+        observer.unobserve(skillsRef)
+      }
+    }
+  }, [skillsData, skillsRef])
+  
+  // Scroll animation effect for title
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe title section
+    const titleSection = document.querySelector('.text-center.mb-16');
+    if (titleSection) {
+      observer.observe(titleSection);
+    }
+
+    return () => {
+      if (titleSection) {
+        observer.unobserve(titleSection);
+      }
+    };
+  }, []);
   
   return (
     <section id="skills" className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800/50 dark:to-gray-900/80">
       <div className="container mx-auto max-w-6xl">
         {/* 标题部分 - 优化设计 */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16 opacity-0 transform translate-y-8 transition-all duration-700 ease-out">
           <div className="inline-block relative mb-4">
             <div className="absolute -top-6 -left-6 w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full blur-md"></div>
             <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-purple-100 dark:bg-purple-900/30 rounded-full blur-md"></div>
@@ -49,7 +128,7 @@ const Skills = () => {
         </div>
 
         {/* 雷达图与技术指标 - 改进布局 */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+        <div ref={skillsRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           {/* 雷达图 - 优化设计 */}
           <div className="h-80 md:h-96 relative group animate-slide-up">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform group-hover:scale-[1.02]"></div>
@@ -137,27 +216,27 @@ const Skills = () => {
                   
                   <div className="p-5 ml-1">
                     <div className="flex justify-between items-center mb-3">
-                      <div className="flex items-center">
-                        <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
-                          <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                          </svg>
+                        <div className="flex items-center">
+                          <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors">
+                            <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{skill.name}</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">{skill.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="font-semibold text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{skill.name}</h3>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">{skill.description}</p>
-                        </div>
+                        <span className="text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">{counts[skill.name] || 0}%</span>
                       </div>
-                      <span className="text-sm font-bold text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">{skill.level}%</span>
-                    </div>
-                    
-                    {/* 进度条 - 优化设计 */}
-                    <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1500 ease-out group-hover:from-blue-600 group-hover:to-purple-600"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                      
+                      {/* 进度条 - 优化设计 */}
+                      <div className="h-2 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-2000 ease-out group-hover:from-blue-600 group-hover:to-purple-600"
+                          style={{ width: `${counts[skill.name] || 0}%` }}
+                        ></div>
+                      </div>
                   </div>
                 </div>
               ))}

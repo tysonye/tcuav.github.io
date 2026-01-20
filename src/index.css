@@ -146,6 +146,44 @@ img {
   }
 }
 
+/* 新增的动画效果 */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(15px) rotate(-2deg);
+  }
+}
+
+@keyframes particle {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+}
+
 /* 动画类应用 */
 .animate-fade-in {
   animation: fade-in 0.8s ease-out forwards;
@@ -159,12 +197,24 @@ img {
   animation: float 3s ease-in-out infinite;
 }
 
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
 .animate-scroll-down {
   animation: scroll-down 2s ease-in-out infinite;
 }
 
 .animate-spin-slow {
   animation: spin-slow 10s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-particle {
+  animation: particle 4s ease-in-out infinite;
 }
 
 /* 动画延迟类 */
@@ -182,6 +232,18 @@ img {
 
 .animation-delay-500 {
   animation-delay: 0.5s;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-1500 {
+  animation-delay: 1.5s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
 }
 
 /* 自定义滚动条 */

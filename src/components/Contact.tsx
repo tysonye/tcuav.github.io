@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const Contact = () => {
   const [showWechatQR, setShowWechatQR] = useState(false)
@@ -7,6 +7,12 @@ const Contact = () => {
   const [showTwitterQR, setShowTwitterQR] = useState(false)
   const [showXiaohongshuQR, setShowXiaohongshuQR] = useState(false)
   const [showKuaishouQR, setShowKuaishouQR] = useState(false)
+
+  // Refs for scroll animations
+  const titleRef = useRef<HTMLDivElement>(null)
+  const contactCardRef = useRef<HTMLDivElement>(null)
+  const socialCardRef = useRef<HTMLDivElement>(null)
+  const socialContainerRef = useRef<HTMLDivElement>(null)
 
   const socialLinks = [
     { name: '微信公众号', url: '#', icon: 'M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z' },
@@ -17,10 +23,53 @@ const Contact = () => {
     { name: '桐城市无人机协会', url: '#', icon: 'M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84' }
   ]
 
+  // Scroll animation effect
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe title section
+    if (titleRef.current) {
+      observer.observe(titleRef.current);
+    }
+
+    // Observe contact card
+    if (contactCardRef.current) {
+      observer.observe(contactCardRef.current);
+    }
+
+    // Observe social card
+    if (socialCardRef.current) {
+      observer.observe(socialCardRef.current);
+    }
+
+    // Observe social media buttons with staggered animation
+    if (socialContainerRef.current) {
+      const socialButtons = socialContainerRef.current.querySelectorAll('div');
+      socialButtons.forEach((button, index) => {
+        button.classList.add(`animation-delay-${index * 100}`);
+        observer.observe(button);
+      });
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-800/50">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div ref={titleRef} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block relative">
             联系我们
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-1 bg-blue-600 dark:bg-blue-400 w-24 rounded-full"></div>
@@ -31,13 +80,10 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+          <div ref={contactCardRef} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
             <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">联系方式</h3>
             <div className="space-y-6">
-              <div className="flex items-start">
 
-
-              </div>
               <div className="flex items-start">
                 <div className="mt-1 p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-400">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,11 +122,11 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+          <div ref={socialCardRef} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
             <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">关注我们</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">关注我们的社交媒体，获取最新的无人机技术和行业动态</p>
             <div className="relative">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div ref={socialContainerRef} className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {socialLinks.map((link, index) => (
                   <div
                     key={index}

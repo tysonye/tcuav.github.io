@@ -1,18 +1,37 @@
 const Hero = () => {
   return (
     <section className="min-h-screen relative flex flex-col items-center justify-center py-20 px-4 overflow-hidden">
-      {/* 动态背景 */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 transition-all duration-1000"></div>
+      {/* 动态背景 - 增强版 */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900/20 dark:to-indigo-900/30 transition-all duration-2000"></div>
       
-      {/* 背景装饰元素 */}
-      <div className="absolute inset-0 overflow-hidden opacity-10 dark:opacity-20">
-        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-blue-400 blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/3 -right-20 w-60 h-60 rounded-full bg-indigo-400 blur-3xl animate-pulse animation-delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-72 h-72 rounded-full bg-purple-400 blur-3xl animate-pulse animation-delay-2000"></div>
+      {/* 增强的背景装饰元素 */}
+      <div className="absolute inset-0 overflow-hidden opacity-15 dark:opacity-25">
+        {/* 流动的渐变光效 */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/3 -right-40 w-80 h-80 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400 blur-3xl animate-pulse-slow animation-delay-1500"></div>
+        <div className="absolute bottom-20 left-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 blur-3xl animate-pulse-slow animation-delay-3000"></div>
+        
+        {/* 网格线效果 */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(100,116,139,0.1)_1px,transparent_1px)] bg-[size:2rem_2rem] dark:bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.1)_1px,transparent_1px)]"></div>
       </div>
       
-      {/* 几何装饰 */}
+      {/* 粒子效果装饰 */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* 浮动的无人机粒子 */}
+        {Array.from({ length: 20 }).map((_, index) => (
+          <div 
+            key={index}
+            className="absolute w-1 h-1 rounded-full bg-blue-400 dark:bg-blue-500 animate-particle"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${3 + Math.random() * 3}s`
+            }}
+          ></div>
+        ))}
+        
+        {/* 几何装饰 */}
         <div className="absolute top-1/4 left-1/4 w-12 h-12 border-2 border-blue-300 dark:border-blue-600 rounded-full animate-float"></div>
         <div className="absolute top-1/3 right-1/3 w-8 h-8 border-2 border-indigo-300 dark:border-indigo-600 rounded animate-float animation-delay-1000"></div>
         <div className="absolute bottom-1/3 left-1/3 w-10 h-10 border-2 border-purple-300 dark:border-purple-600 rounded-full animate-float animation-delay-2000"></div>
@@ -80,20 +99,24 @@ const Hero = () => {
           {/* 无人机图片 - 增强效果 */}
           <div className="md:w-1/2 flex justify-center">
             <div className="relative w-64 h-64 md:w-96 md:h-96">
-              {/* 光晕效果 */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 blur-3xl opacity-30 animate-pulse"></div>
+              {/* 增强的光晕效果 - 动态变色 */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 blur-3xl opacity-40 animate-pulse-slow"></div>
               
-              {/* 装饰环 */}
+              {/* 装饰环 - 增强版 */}
               <div className="absolute inset-0 rounded-full border-4 border-blue-200 dark:border-blue-800/30 animate-spin-slow"></div>
-              <div className="absolute inset-4 rounded-full border-2 border-indigo-200 dark:border-indigo-800/30 animate-spin-slow animation-direction-reverse"></div>
+              <div className="absolute inset-4 rounded-full border-2 border-indigo-200 dark:border-indigo-800/30 animate-spin-slow animation-direction-reverse animation-delay-1000"></div>
+              <div className="absolute inset-8 rounded-full border-1 border-purple-200 dark:border-purple-800/30 animate-spin-slow animation-duration-2000"></div>
               
-              {/* 主图片 */}
-              <div className="absolute inset-6 rounded-full bg-white dark:bg-gray-900 shadow-2xl overflow-hidden">
+              {/* 3D悬浮效果 */}
+              <div className="absolute inset-6 rounded-full bg-white dark:bg-gray-900 shadow-2xl overflow-hidden animate-float-slow">
                 <img 
                   src="https://space.coze.cn/api/coze_space/gen_image?image_size=square&prompt=Modern%20drone%20technology%20with%20advanced%20aerial%20system%2C%20professional%20photography%20equipment&sign=4ca9c74d09940bb3c2d4eb9f6a165adc" 
                   alt="无人机技术" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-1000 hover:scale-110 hover:rotate-5"
                 />
+                
+                {/* 图片叠加光效 */}
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/10 dark:to-gray-900/20"></div>
               </div>
             </div>
           </div>

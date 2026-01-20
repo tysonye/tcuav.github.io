@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { fetchNewsFromIssues } from '../utils/githubApi'
 
 interface NewsItem {
@@ -21,6 +21,35 @@ const News = () => {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null)
   const [newsData, setNewsData] = useState<NewsItem[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  
+  // 滚动动画相关的Ref
+  const newsContainerRef = useRef<HTMLDivElement>(null)
+  
+  // 为新闻卡片添加滚动触发动画
+  useEffect(() => {
+    if (newsData.length === 0) return
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    
+    // 观察新闻卡片
+    const newsCards = newsContainerRef.current?.querySelectorAll('.news-card')
+    newsCards?.forEach((card, index) => {
+      card.classList.add(`animation-delay-${index * 100}`)
+      observer.observe(card)
+    })
+    
+    return () => observer.disconnect()
+  }, [newsData])
   
   // 从GitHub Issues获取新闻数据
   useEffect(() => {
@@ -89,11 +118,11 @@ const News = () => {
           </div>
         ) : (
           /* 新闻列表 */
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={newsContainerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredNews.map(news => (
               <div
                 key={news.id}
-                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer news-card opacity-0"
                 onClick={() => setSelectedNews(news)}
               >
                 <div className="relative h-52 overflow-hidden">

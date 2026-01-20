@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 const About = () => {
   const aboutContent = [
     {
@@ -50,6 +52,54 @@ const About = () => {
     }
   ];
 
+  // 滚动动画相关的Refs
+  const companySectionRef = useRef<HTMLDivElement>(null);
+  const advantagesRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+
+  // 为元素添加滚动触发动画
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // 观察公司简介部分
+    const companyElements = companySectionRef.current?.querySelectorAll('.animate-on-scroll');
+    companyElements?.forEach((el) => observer.observe(el));
+
+    // 观察核心优势卡片
+    const advantageCards = advantagesRef.current?.querySelectorAll('.advantage-card');
+    advantageCards?.forEach((card, index) => {
+      card.classList.add(`animation-delay-${index * 100}`);
+      observer.observe(card);
+    });
+
+    // 观察时间轴项
+    const timelineItems = timelineRef.current?.querySelectorAll('.timeline-item');
+    timelineItems?.forEach((item, index) => {
+      item.classList.add(`animation-delay-${index * 200}`);
+      observer.observe(item);
+    });
+
+    // 观察数据统计项
+    const statsItems = statsRef.current?.querySelectorAll('.stat-item');
+    statsItems?.forEach((item, index) => {
+      item.classList.add(`animation-delay-${index * 100}`);
+      observer.observe(item);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="about" className="py-20 px-4 bg-white dark:bg-gray-900">
       <div className="container mx-auto max-w-6xl">
@@ -64,9 +114,9 @@ const About = () => {
         </div>
 
         {/* 公司简介和使命 */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
+        <div ref={companySectionRef} className="grid md:grid-cols-2 gap-12 items-center mb-24">
           {/* 左侧图片 */}
-          <div className="relative group">
+          <div className="relative group animate-on-scroll opacity-0">
             <div className="absolute -top-4 -left-4 w-full h-full rounded-2xl border-2 border-blue-600 dark:border-blue-400 group-hover:scale-105 transition-transform duration-500"></div>
             <div className="rounded-2xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
               <img 
@@ -82,7 +132,8 @@ const About = () => {
             {aboutContent.map((item, index) => (
               <div 
                 key={index}
-                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700"
+                className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 animate-on-scroll opacity-0"
+                style={{ animationDelay: `${index * 200}ms` }}
               >
                 <h3 className="text-2xl font-bold mb-4 text-blue-600 dark:text-blue-400 flex items-center">
                   {index === 0 && <span className="mr-3 text-3xl">🏢</span>}
@@ -96,7 +147,7 @@ const About = () => {
         </div>
 
         {/* 核心优势 - 卡片式布局 */}
-        <div className="mb-24">
+        <div ref={advantagesRef} className="mb-24">
           <h3 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="inline-block relative">
               核心优势
@@ -108,7 +159,7 @@ const About = () => {
             {coreAdvantages.map((advantage) => (
               <div 
                 key={advantage.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 group overflow-hidden"
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 group overflow-hidden advantage-card opacity-0"
               >
                 {/* 卡片顶部装饰 */}
                 <div className="h-2 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300"></div>
@@ -136,7 +187,7 @@ const About = () => {
         </div>
 
         {/* 公司发展历程 - 优化设计 */}
-        <div className="mb-24">
+        <div ref={timelineRef} className="mb-24">
           <h3 className="text-3xl md:text-4xl font-bold mb-16 text-center">
             <span className="inline-block relative">
               公司发展历程
@@ -152,7 +203,7 @@ const About = () => {
             {/* 时间轴内容 */}
             <div className="space-y-16">
               {/* 2021年 - 左侧 */}
-              <div className="relative">
+              <div className="relative timeline-item opacity-0">
                 {/* 桌面视图 - 左侧内容 */}
                 <div className="hidden md:flex items-center">
                   {/* 左侧内容区域 */}
@@ -188,7 +239,7 @@ const About = () => {
               </div>
               
               {/* 2022年 - 右侧 */}
-              <div className="relative">
+              <div className="relative timeline-item opacity-0">
                 {/* 桌面视图 - 右侧内容 */}
                 <div className="hidden md:flex items-center">
                   {/* 左侧空白占位 */}
@@ -223,7 +274,7 @@ const About = () => {
               </div>
               
               {/* 2023年 - 左侧 */}
-              <div className="relative">
+              <div className="relative timeline-item opacity-0">
                 {/* 桌面视图 - 左侧内容 */}
                 <div className="hidden md:flex items-center">
                   {/* 左侧内容区域 */}
@@ -259,7 +310,7 @@ const About = () => {
               </div>
               
               {/* 2024年 - 右侧 */}
-              <div className="relative">
+              <div className="relative timeline-item opacity-0">
                 {/* 桌面视图 - 右侧内容 */}
                 <div className="hidden md:flex items-center">
                   {/* 左侧空白占位 */}
@@ -294,7 +345,7 @@ const About = () => {
               </div>
               
               {/* 2025年 - 左侧 */}
-              <div className="relative">
+              <div className="relative timeline-item opacity-0">
                 {/* 桌面视图 - 左侧内容 */}
                 <div className="hidden md:flex items-center">
                   {/* 左侧内容区域 */}
@@ -330,7 +381,7 @@ const About = () => {
               </div>
               
               {/* 2026年 - 右侧 */}
-              <div className="relative">
+              <div className="relative timeline-item opacity-0">
                 {/* 桌面视图 - 右侧内容 */}
                 <div className="hidden md:flex items-center">
                   {/* 左侧空白占位 */}
@@ -372,7 +423,7 @@ const About = () => {
         </div>
 
         {/* 公司数据统计 - 优化设计 */}
-        <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+        <div ref={statsRef} className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
           <h3 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             <span className="inline-block relative">
               公司数据
@@ -382,28 +433,28 @@ const About = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* 年行业经验 */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group stat-item opacity-0">
               <div className="text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 group-hover:scale-110 transition-transform duration-300">
                 5+</div>
               <p className="text-gray-600 dark:text-gray-300 font-medium">年行业经验</p>
             </div>
             
             {/* 合作客户 */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group stat-item opacity-0">
               <div className="text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 dark:from-purple-400 dark:to-pink-400 group-hover:scale-110 transition-transform duration-300">
                 100+</div>
               <p className="text-gray-600 dark:text-gray-300 font-medium">合作客户</p>
             </div>
             
             {/* 专利与软著 */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group stat-item opacity-0">
               <div className="text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500 dark:from-pink-400 dark:to-orange-400 group-hover:scale-110 transition-transform duration-300">
                 20+</div>
               <p className="text-gray-600 dark:text-gray-300 font-medium">专利与软著</p>
             </div>
             
             {/* 专业团队 */}
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-gray-700 text-center group stat-item opacity-0">
               <div className="text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500 dark:from-green-400 dark:to-blue-400 group-hover:scale-110 transition-transform duration-300">
                 50+</div>
               <p className="text-gray-600 dark:text-gray-300 font-medium">专业团队</p>
