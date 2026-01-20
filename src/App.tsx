@@ -198,7 +198,7 @@ const techSupportContent = `技术支持
 官网：https://uav.xibai.xin/`;
 
 function App() {
-  const { isDarkMode, toggleTheme } = useTheme();
+  useTheme();
   const [showLegalModal, setShowLegalModal] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
