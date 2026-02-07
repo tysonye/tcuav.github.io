@@ -172,14 +172,16 @@ const Projects = () => {
                 className="h-[500px] md:h-[600px] max-h-[80vh]"
               >
                 {filteredProjects.map((project) => (
-                  <SwiperSlide key={project.id} className="relative">
+                  <SwiperSlide key={project.id} className="relative bg-gray-800">
                     <div className="absolute inset-0 bg-black/50 z-10"></div>
                     <img 
                       src={project.imageUrl} 
                       alt={project.title} 
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
+                      onError={(e) => {
+                        console.error('Image failed to load:', project.imageUrl);
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80';
+                      }}
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-8">
                       <div className="max-w-3xl mx-auto">
@@ -227,8 +229,10 @@ const Projects = () => {
                       src={project.imageUrl} 
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                      decoding="async"
+                      onError={(e) => {
+                        console.error('Image failed to load:', project.imageUrl);
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80';
+                      }}
                     />
                     <div className="absolute top-4 left-4 flex gap-2">
                       <span className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">
@@ -285,8 +289,10 @@ const Projects = () => {
                   src={selectedProject.imageUrl}
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
+                  onError={(e) => {
+                    console.error('Image failed to load:', selectedProject.imageUrl);
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80';
+                  }}
                 />
                 <button
                   onClick={() => setSelectedProject(null)}

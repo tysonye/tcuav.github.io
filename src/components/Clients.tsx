@@ -19,8 +19,7 @@ const Clients = () => {
       title: "电力巡检无人机系统",
       industry: "电力行业",
       description: "为某电力公司提供的无人机巡检系统，实现了输电线路的自动化巡检，大幅提高了巡检效率，降低了人工成本和安全风险。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape&prompt=Professional%20drone%20inspecting%20power%20lines%2C%20modern%20technology%2C%20high%20resolution&sign=2cea00d74201af472d3f6f8be5724d9b",
-      videoUrl: "", // 预留视频URL位置
+      imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
       results: [
         "巡检效率提升80%",
         "人工成本降低60%",
@@ -33,8 +32,7 @@ const Clients = () => {
       title: "农业植保无人机解决方案",
       industry: "农业领域",
       description: "为农业合作社提供的无人机植保解决方案，实现了精准喷洒、病虫害监测和作物生长分析，提高了农作物产量和质量。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape&prompt=Agricultural%20drone%20spraying%20crops%2C%20precision%20agriculture%2C%20green%20fields&sign=2cea00d74201af472d3f6f8be5724d9b",
-      videoUrl: "", // 预留视频URL位置
+      imageUrl: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
       results: [
         "农药使用量减少30%",
         "作物产量提升15%",
@@ -47,8 +45,7 @@ const Clients = () => {
       title: "城市安防监控系统",
       industry: "安防领域",
       description: "为城市管理部门提供的无人机安防监控系统，实现了城市重点区域的实时监控、应急响应和事件处理，提升了城市管理水平。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape&prompt=Drone%20monitoring%20city%20skyline%2C%20urban%20security%2C%20modern%20city&sign=2cea00d74201af472d3f6f8be5724d9b",
-      videoUrl: "", // 预留视频URL位置
+      imageUrl: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80",
       results: [
         "应急响应时间缩短50%",
         "监控覆盖范围扩大3倍",
@@ -61,8 +58,7 @@ const Clients = () => {
       title: "森林防火监测系统",
       industry: "林业领域",
       description: "为林业部门提供的无人机森林防火监测系统，实现了大面积森林的实时监测、火情预警和应急响应，有效保护了森林资源。",
-      imageUrl: "https://space.coze.cn/api/coze_space/gen_image?image_size=landscape&prompt=Drone%20monitoring%20forest%20fire%20prevention%2C%20green%20forest%2C%20aerial%20view&sign=2cea00d74201af472d3f6f8be5724d9b",
-      videoUrl: "", // 预留视频URL位置
+      imageUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
       results: [
         "火情监测响应时间缩短80%",
         "监测范围扩大5倍",

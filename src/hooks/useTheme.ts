@@ -19,8 +19,5 @@ export const useTheme = () => {
     }
   }, [])
 
-  // 空函数，保持API兼容
-  const toggleTheme = () => {}
-
-  return { isDarkMode, toggleTheme }
+  return { isDarkMode }
 }

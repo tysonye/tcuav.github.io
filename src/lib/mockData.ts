@@ -8,7 +8,7 @@ export const skillsData = [
     description: '自主研发多型号无人机，满足不同行业需求',
     details: {
       title: '无人机设计',
-      imageUrl: '/image/wrjsj.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80',
       content: [
         '自主研发多型号无人机，包括固定翼、多旋翼、垂直起降等多种构型',
         '采用先进的轻量化材料和结构设计，提高无人机的续航能力和负载能力',
@@ -26,7 +26,7 @@ export const skillsData = [
     description: '专业的影视航拍技术，为影视制作提供高质量的航拍画面',
     details: {
       title: '影视航拍技术',
-      imageUrl: '/image/yshpjs.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80',
       content: [
         '配备专业影视设备，支持4K/8K超高清拍摄',
         '采用先进的稳定云台技术，确保航拍画面平稳流畅',
@@ -44,7 +44,7 @@ export const skillsData = [
     description: '虚拟现实和增强现实技术，为客户提供沉浸式的视觉体验',
     details: {
       title: 'VR/AR技术',
-      imageUrl: '/image/VRAR.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=800&q=80',
       content: [
         '掌握VR全景拍摄和制作技术，能制作高质量的720°全景内容',
         '具备AR技术融合能力，将虚拟元素与现实场景无缝融合',
@@ -62,7 +62,7 @@ export const skillsData = [
     description: '高精度飞行控制系统，支持多种飞行模式',
     details: {
       title: '飞控系统技术',
-      imageUrl: '/image/fkxt.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
       content: [
         '自主研发的高精度飞行控制系统，支持手动、半自动、全自动三种飞行模式',
         '采用先进的传感器融合算法，实现无人机的精准定位和姿态控制',
@@ -80,7 +80,7 @@ export const skillsData = [
     description: '无人机低空数据与卫星高空数据融合应用',
     details: {
       title: '卫星遥感融合技术',
-      imageUrl: '/image/wxrh.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
       content: [
         '将无人机低空高精度数据与卫星高空广域数据进行融合，实现空天地一体化监测',
         '采用先进的数据融合算法，提高数据的精度和可靠性',
@@ -98,7 +98,7 @@ export const skillsData = [
     description: '水域场景AI智能识别，钓鱼行为识别准确率达90%+',
     details: {
       title: 'AI智能识别技术',
-      imageUrl: '/image/AI.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
       content: [
         '针对水域场景开发的AI智能识别算法，钓鱼行为识别准确率达90%以上',
         '支持多种目标识别，包括船只、人员、植被、建筑物等',
@@ -116,7 +116,7 @@ export const skillsData = [
     description: '实时图像处理和分析，支持AI识别功能',
     details: {
       title: '图像处理技术',
-      imageUrl: '/image/txcl.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
       content: [
         '具备强大的实时图像处理和分析能力，支持多种图像处理算法',
         '实现了图像的增强、拼接、融合、识别等多种功能',
@@ -134,7 +134,7 @@ export const skillsData = [
     description: '5G+WiFi6双链路数据传输，低延迟高带宽',
     details: {
       title: '数据传输技术',
-      imageUrl: '/image/wlcs.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
       content: [
         '采用5G+WiFi6双链路数据传输方案，实现了低延迟、高带宽的数据传输',
         '支持多种传输协议，包括TCP/IP、UDP、MQTT等',
@@ -152,7 +152,7 @@ export const skillsData = [
     description: '持有安徽省CAAC培训资质，多机型培训能力',
     details: {
       title: 'CAAC无人机培训',
-      imageUrl: '/image/caac.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
       content: [
         '持有安徽省CAAC培训资质，提供多机型、多等级的无人机培训服务',
         '建立了完善的培训课程体系，包括理论教学、模拟训练和实操飞行',
@@ -171,7 +171,7 @@ export const skillsData = [
     description: '构建"空-天-地"一体化监测预警系统',
     details: {
       title: '空天地一体化技术',
-      imageUrl: '/image/ktyt.jpg',
+      imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
       content: [
         '构建了"空-天-地"一体化监测预警系统，实现了对目标区域的全方位监测',
         '整合了卫星遥感、无人机航拍、地面传感器等多种监测手段',
@@ -203,7 +203,7 @@ export const projectsData = [
     id: 1,
     title: '花亭湖违规钓鱼管控方案',
     description: '针对花亭湖水域的"无人机+AI"违规钓鱼管控方案，通过AI智能识别算法，对钓鱼竿、钓鱼人姿态的识别准确率达90%以上，可将违规钓鱼处置响应时间从平均2小时缩短至30分钟，违规现象发生率预计下降60%。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20monitoring%20water%20surface%20for%20illegal%20fishing%2C%20AI%20recognition%2C%20water%20conservancy%20management&sign=1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p',
+    imageUrl: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80',
     technologies: ['AI智能识别', '热成像', '实时传输', '自动跟踪', '边缘计算'],
     link: '#',
     client: '太湖县花亭湖管理处',
@@ -238,7 +238,7 @@ export const projectsData = [
     id: 2,
     title: '林业巡护无人机',
     description: '为164万亩林地提供火情、病虫害监测服务，将监测覆盖率从40%提升至100%，发现响应时间从24小时缩短至2小时内。结合卫星遥感数据，实现"空天地一体化"林业监测。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Forest%20monitoring%20drone%20flying%20over%20green%20forest%2C%20wildfire%20detection%2C%20environmental%20monitoring&sign=2a3b4c5d6e7f8g9i0j1k2l3m4n5o6p7q',
+    imageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80',
     technologies: ['卫星遥感融合', '火情监测', '病虫害识别', 'GIS集成', '长续航'],
     link: '#',
     client: '太湖县林业局',
@@ -273,7 +273,7 @@ export const projectsData = [
     id: 3,
     title: '农业植保无人机',
     description: '高效精准的农业植保解决方案，支持智能航线规划、变量喷洒和作物监测，提高农药利用率30%以上，降低农业成本20%。适用于水稻、小麦、棉花等多种作物，可实现大面积快速作业。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Agricultural%20drone%20spraying%20crops%2C%20precision%20agriculture%2C%20smart%20farming&sign=dd6c74463f85326b0a27e140260bffec',
+    imageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80',
     technologies: ['精准喷洒', 'GPS导航', '智能规划', '作物分析', '大数据采集'],
     link: '#',
     client: '安徽农垦集团',
@@ -308,7 +308,7 @@ export const projectsData = [
     id: 4,
     title: '电力巡检无人机',
     description: '专为电力行业设计的智能巡检无人机，配备高清摄像头和热成像仪，实现自动化巡检和故障检测。可减少停电时长超20小时，多供电量约5.2万千瓦时，大幅提高巡检效率和安全性。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Industrial%20drone%20inspecting%20power%20lines%2C%20high%20resolution%20camera%2C%20thermal%20imaging&sign=7714e1392ddc0d0c7659d0711c31331f',
+    imageUrl: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
     technologies: ['自动避障', 'AI识别', '热成像', '长续航', '远程控制'],
     link: '#',
     client: '国家电网',
@@ -343,7 +343,7 @@ export const projectsData = [
     id: 5,
     title: '测绘航拍无人机',
     description: '高精度测绘航拍解决方案，支持多种地形和环境下的三维建模和地图绘制。配备专业级测绘相机和GNSS系统，可实现厘米级精度的地形数据采集，广泛应用于城市规划、交通建设和资源勘探等领域。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Surveying%20drone%20capturing%20aerial%20mapping%2C%203D%20modeling%2C%20geospatial%20data%20collection&sign=3a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
     technologies: ['高精度GNSS', '3D建模', '倾斜摄影', '数据处理', 'AI分析'],
     link: '#',
     client: '安徽省测绘局',
@@ -378,7 +378,7 @@ export const projectsData = [
     id: 6,
     title: 'CAAC无人机培训',
     description: '持有安徽省CAAC培训资质，提供多机型、多等级的无人机培训服务。已建立完善的培训课程体系、实操教学方法及质量管控标准，计划3年内为太湖县培养300名以上无人机操作人才。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20training%20course%2C%20CAAC%20certification%2C%20professional%20instructors%2C%20flight%20training%20ground&sign=4a5b6c7d8e9i0j1k2l3m4n5o6p7q8r9s0t',
+    imageUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
     technologies: ['CAAC培训', '模拟训练', '实操教学', '质量管控', '多机型培训'],
     link: '#',
     client: '太湖县职业技术学院',
@@ -413,7 +413,7 @@ export const projectsData = [
     id: 7,
     title: '空中测航服务',
     description: '机动灵活、高效快速、精细准确、作业成本低、适用范围广、生产周期短的空中测航服务，为各行业提供高质量的测绘数据。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20aerial%20surveying%2C%20topographic%20mapping%2C%20geospatial%20data%20collection%2C%20high%20precision&sign=8a9b0c1d2e3f4g5h6i7j8k9l0m1n2o3p',
+    imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
     technologies: ['高精度测绘', 'GPS/北斗定位', '三维建模', '数据处理', 'GIS集成'],
     link: '#',
     client: '安徽省自然资源厅',
@@ -448,7 +448,7 @@ export const projectsData = [
     id: 8,
     title: '影视航拍解决方案',
     description: '机动灵活，选择视角得心应手。费用低，飞行费用只相当于载人飞行器的几分之一，为影视制作提供高质量的航拍画面。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20film%20aerial%20photography%2C%20movie%20production%2C%20cinematic%20shots%2C%20professional%20camera&sign=9a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p',
+    imageUrl: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80',
     technologies: ['专业影视设备', '稳定云台', '4K/8K拍摄', '航线规划', '后期制作'],
     link: '#',
     client: '安徽电影制片厂',
@@ -484,7 +484,7 @@ export const projectsData = [
     id: 10,
     title: 'VR全景解决方案',
     description: '利用无人机拍摄制作VR全景，制作航拍720°全景，为客户提供沉浸式的视觉体验。',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20VR%20panorama%20shooting%2C%20720%20degree%20aerial%20view%2C%20virtual%20reality%2C%20immersive%20experience&sign=1a2b3c3d4e5f6g7h8i9j0k1l2m3n4o5p',
+    imageUrl: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=800&q=80',
     technologies: ['全景拍摄', '720°拼接', 'VR制作', '交互设计', '平台发布'],
     link: '#',
     client: '安徽省旅游发展委员会',
@@ -516,76 +516,4 @@ export const projectsData = [
     }
   },
 
-]
-
-// 新闻分类
-export const newsCategories = [
-  { id: 'company', name: '公司动态' },
-  { id: 'industry', name: '行业资讯' },
-  { id: 'technology', name: '技术前沿' },
-  { id: 'event', name: '活动预告' }
-]
-
-// 新闻详细内容
-export const newsData = [
-  {
-    id: 1,
-    title: '通程智能获得安徽省CAAC无人机培训资质',
-    content: '近日，安徽通程智能科技有限公司正式获得安徽省民用航空局颁发的CAAC无人机培训资质，成为太湖县首家具备无人机驾驶员培训资格的企业。',
-    date: '2025-01-10',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20training%20certification%2C%20CAAC%20approval%2C%20company%20achievement&sign=5a6b7c8d9e0f1g2h3i4j5k6l7m8n9o0p',
-    category: 'company',
-    details: {
-      fullContent: [
-        '近日，安徽通程智能科技有限公司正式获得安徽省民用航空局颁发的CAAC无人机培训资质，成为太湖县首家具备无人机驾驶员培训资格的企业。',
-        '此次获得CAAC培训资质，标志着通程智能在无人机培训领域的专业能力得到了权威认可。公司将依托这一资质，开展多机型、多等级的无人机驾驶员培训，为社会培养更多合格的无人机专业人才。',
-        '通程智能建立了完善的培训课程体系，包括理论教学、模拟训练和实操飞行等环节。公司拥有专业的培训师资队伍和先进的培训设备，可满足不同层次学员的培训需求。',
-        '据了解，通程智能计划在3年内为太湖县培养300名以上无人机操作人才，助力当地无人机产业发展，促进就业增长。',
-        'CAAC无人机培训资质的获得，是通程智能发展历程中的重要里程碑，将为公司在无人机领域的进一步发展奠定坚实基础。'
-      ],
-      tags: ['CAAC资质', '无人机培训', '公司发展'],
-      author: '通程智能',
-      source: '公司新闻'
-    }
-  },
-  {
-    id: 2,
-    title: '花亭湖违规钓鱼管控系统正式投入使用',
-    content: '由通程智能研发的"无人机+AI"违规钓鱼管控系统在花亭湖正式投入使用，该系统将有效提升花亭湖水域管理水平。',
-    date: '2025-01-05',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20monitoring%20system%20launch%20ceremony%2C%20water%20management%20officials&sign=6a7b8c9d0e1f2g3h4i5j6k7l8m9n0o1p',
-    category: 'event',
-    details: {
-      fullContent: [
-        '由通程智能研发的"无人机+AI"违规钓鱼管控系统在花亭湖正式投入使用，该系统将有效提升花亭湖水域管理水平。',
-        '花亭湖是太湖县重要的饮用水源地和旅游景区，但长期以来，违规钓鱼问题一直困扰着管理部门。传统的人工巡查方式效率低下，难以实现全方位、全天候监测。',
-        '通程智能研发的"无人机+AI"违规钓鱼管控系统，通过无人机搭载高清摄像头和AI智能识别算法，可实时检测水域中的违规钓鱼行为，并将预警信息发送给管理人员。该系统的投入使用，将大幅提高花亭湖水域的管理效率和管控能力。',
-        '据介绍，该系统的AI智能识别算法对钓鱼行为的识别准确率达90%以上，可将违规钓鱼处置响应时间从平均2小时缩短至30分钟。系统还支持夜间作业，配备热成像设备，可实现24小时不间断监测。',
-        '花亭湖管理处负责人表示，该系统的投入使用，将有效遏制花亭湖水域的违规钓鱼行为，保护水域生态环境，提升景区形象。'
-      ],
-      tags: ['违规钓鱼管控', '无人机应用', '环境管理'],
-      author: '通程智能',
-      source: '项目动态'
-    }
-  },
-  {
-    id: 3,
-    title: '无人机技术在林业巡护中的应用前景',
-    content: '随着无人机技术的不断发展，其在林业巡护中的应用前景越来越广阔。通程智能的林业巡护无人机解决方案，为林业管理提供了新的思路和方法。',
-    date: '2025-01-01',
-    imageUrl: 'https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_4_3&prompt=Drone%20flying%20over%20forest%2C%20forest%20protection%2C%20environmental%20monitoring&sign=7a8b9c0d1e2f3g4h5i6j7k8l9m0n1o2p',
-    category: 'industry',
-    details: {
-      fullContent: [
-        '随着无人机技术的不断发展，其在林业巡护中的应用前景越来越广阔。通程智能的林业巡护无人机解决方案，为林业管理提供了新的思路和方法。',
-        '传统的林业巡护主要依靠人工巡查，存在效率低、覆盖范围小、响应慢等问题。无人机技术的应用，可实现对林地的全方位、高精度、实时监测，大幅提高林业巡护效率和管理水平。',
-        '通程智能的林业巡护无人机解决方案，整合了无人机航拍、卫星遥感、地面传感器等多种监测手段，实现了"空天地一体化"监测。该方案可用于森林火情监测、病虫害识别、非法采伐监测等多种场景。',
-        '据了解，通程智能已为太湖县林业局提供了林业巡护无人机服务，覆盖林地面积164万亩。该服务将监测覆盖率从40%提升至100%，发现响应时间从24小时缩短至2小时内，取得了显著的经济效益和生态效益。',
-        '业内专家表示，无人机技术在林业巡护中的应用前景广阔，随着技术的不断成熟和成本的降低，将在全国范围内得到广泛应用。'
-      ],
-      tags: ['林业巡护', '无人机应用', '行业前景'],
-      author: '通程智能',
-      source: '行业资讯'
-    }
-  }
 ]
