@@ -169,6 +169,8 @@ const Contact = () => {
                           src="/image/wechatservices.jpg" 
                           alt="微信服务号二维码" 
                           className="w-36 h-36 object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">微信服务号</p>
@@ -180,6 +182,8 @@ const Contact = () => {
                           src="/image/wechat.jpg" 
                           alt="微信二维码" 
                           className="w-36 h-36 object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">微信公众号</p>
@@ -205,6 +209,8 @@ const Contact = () => {
                           src="/image/wechatsph.jpg" 
                           alt="微信视频号二维码" 
                           className="w-36 h-36 object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">通程无人机</p>
@@ -216,6 +222,8 @@ const Contact = () => {
                           src="/image/wechatsph1.jpg" 
                           alt="微信视频号二维码" 
                           className="w-36 h-36 object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">通程无人机基地</p>
@@ -241,6 +249,8 @@ const Contact = () => {
                           src="/image/dy1.jpg" 
                           alt="抖音二维码" 
                           className="w-36 h-36 object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">安徽桐城科技无人机</p>
@@ -252,6 +262,8 @@ const Contact = () => {
                           src="/image/dy2.jpg" 
                           alt="抖音二维码" 
                           className="w-36 h-36 object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">通程智飞无人机</p>
@@ -275,6 +287,8 @@ const Contact = () => {
                         src="/image/xhs.jpg" 
                         alt="小红书二维码" 
                         className="w-48 h-48 object-contain"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">通程无人机</p>
@@ -297,6 +311,8 @@ const Contact = () => {
                         src="/image/ks.jpg" 
                         alt="快手二维码" 
                         className="w-48 h-48 object-contain"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">快手</p>
@@ -319,6 +335,8 @@ const Contact = () => {
                         src="/image/wrjxh.jpg" 
                         alt="桐城市无人机协会二维码" 
                         className="w-48 h-48 object-contain"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <p className="text-center text-sm font-medium text-gray-700 dark:text-gray-300 mt-3">桐城市无人机协会</p>

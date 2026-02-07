@@ -82,6 +82,8 @@ const Hero = () => {
                   src="https://space.coze.cn/api/coze_space/gen_image?image_size=square&prompt=Modern%20drone%20technology%20with%20advanced%20aerial%20system%2C%20professional%20photography%20equipment&sign=4ca9c74d09940bb3c2d4eb9f6a165adc" 
                   alt="无人机技术" 
                   className="w-full h-full object-cover transition-all duration-1000 hover:scale-110 hover:rotate-5"
+                  loading="eager"
+                  decoding="async"
                 />
                 
                 {/* 图片叠加光效 */}

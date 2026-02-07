@@ -164,6 +164,8 @@ const Clients = () => {
                   src={caseStudy.imageUrl} 
                   alt={caseStudy.title} 
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* 案例信息覆盖层 */}

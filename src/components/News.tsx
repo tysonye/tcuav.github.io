@@ -150,6 +150,8 @@ const News = () => {
                     src={news.imageUrl}
                     alt={news.title}
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-4 left-4 px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-full">
                     {news.category}
@@ -186,6 +188,8 @@ const News = () => {
                   src={selectedNews.imageUrl}
                   alt={selectedNews.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <button
                   onClick={() => setSelectedNews(null)}

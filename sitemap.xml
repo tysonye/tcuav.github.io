@@ -3,7 +3,7 @@
   <!-- 首页 -->
   <url>
     <loc>https://uav.xibai.xin/</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,7 +11,7 @@
   <!-- 关于我们 -->
   <url>
     <loc>https://uav.xibai.xin/#about</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -19,7 +19,7 @@
   <!-- 技术能力 -->
   <url>
     <loc>https://uav.xibai.xin/#skills</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -27,7 +27,7 @@
   <!-- 项目案例 -->
   <url>
     <loc>https://uav.xibai.xin/#projects</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -35,7 +35,7 @@
   <!-- 新闻动态 -->
   <url>
     <loc>https://uav.xibai.xin/#news</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
@@ -43,7 +43,7 @@
   <!-- 考试测评 -->
   <url>
     <loc>https://uav.xibai.xin/#quiz</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -51,7 +51,7 @@
   <!-- 联系我们 -->
   <url>
     <loc>https://uav.xibai.xin/#contact</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

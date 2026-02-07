@@ -133,6 +133,8 @@ const About = () => {
                 src="https://space.coze.cn/api/coze_space/gen_image?image_size=landscape_16_9&prompt=Professional%20drone%20development%20team%20working%20on%20advanced%20aerial%20technology%2C%20modern%20laboratory%2C%20innovative%20environment&sign=2cea00d74201af472d3f6f8be5724d9b" 
                 alt="无人机研发团队" 
                 className="w-full h-auto group-hover:scale-110 transition-transform duration-700"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>

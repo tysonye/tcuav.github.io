@@ -178,6 +178,8 @@ const Projects = () => {
                       src={project.imageUrl} 
                       alt={project.title} 
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-8">
                       <div className="max-w-3xl mx-auto">
@@ -225,6 +227,8 @@ const Projects = () => {
                       src={project.imageUrl} 
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute top-4 left-4 flex gap-2">
                       <span className="px-3 py-1 bg-blue-600 text-white text-sm font-medium rounded-full">
@@ -281,6 +285,8 @@ const Projects = () => {
                   src={selectedProject.imageUrl}
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <button
                   onClick={() => setSelectedProject(null)}

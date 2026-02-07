@@ -1,8 +1,50 @@
+# robots.txt for 安徽通程智能科技有限公司
+# https://uav.xibai.xin/
+
 User-agent: *
 Allow: /
+
+# 禁止搜索引擎索引的目录
 Disallow: /node_modules/
 Disallow: /dist/
 Disallow: /src/
+Disallow: /.git/
+Disallow: /.github/
 Disallow: /.*
 
+# 禁止特定文件类型
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.log$
+
+# 允许搜索引擎索引的重要内容
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /favicon.ico
+
+# 网站地图
 Sitemap: https://uav.xibai.xin/sitemap.xml
+
+# 爬虫访问频率限制
+Crawl-delay: 1
+
+# 针对特定搜索引擎的优化
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Sogou spider
+Allow: /
+Crawl-delay: 1
+
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 1
