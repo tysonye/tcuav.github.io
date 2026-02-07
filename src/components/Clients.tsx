@@ -2,10 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules'
 import { useRef, useEffect } from 'react'
 // 导入Swiper必要的CSS样式
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/effect-coverflow'
+import 'swiper/swiper-bundle.css'
 
 const Clients = () => {
   // Refs for scroll animations

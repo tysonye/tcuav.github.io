@@ -4,10 +4,7 @@ import { projectCategories } from '../lib/mockData'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
 // 导入Swiper必要的CSS样式
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/effect-fade'
+import 'swiper/swiper-bundle.css'
 
 interface Project {
   id: number
